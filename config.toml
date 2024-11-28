@@ -1,0 +1,56 @@
+baseURL = 'https://audace-sailing-team.github.io/'
+theme = "hugo-whisper-theme"
+languageCode = "it"
+title = 'Sensoristica - Audace Sailing Team'
+
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsUseClasses = true
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.55.0"
+
+# Controls how many words are printed in the content summary on the docs homepage.
+# See https://gohugo.io/content-management/summaries/
+summaryLength = 30
+
+[[menu.main]]
+name = "Dashboard"
+url = "/dashboard"
+weight = 1
+
+[[menu.main]]
+name = "Documentazione"
+url = "/docs"
+weight = 2
+
+[params]
+  mainSections = ['docs', 'dashboard']
+  google_analytics_id=""
+  homepage_button_link = '/dashboard'
+  homepage_button_text = 'Dashboard'
+  homepage_intro = 'Sito interno per il reparto di Sensoristica di Audace Sailing Team, contenente la documentazione dei vari progetti in corso.'
+  homepage_image = ''
+l
+  ## You can enable to add anchor links to header elements
+  # enable_anchor_link = true
+
+  [params.homepage_meta_tags]
+    # meta_description = "Hugo Whisper is a documentation theme built with Hugo."
+    # meta_og_title = "Hugo Whisper Theme"
+    # meta_og_type = "website"
+    # meta_og_url = "https://hugo-whisper.netlify.app"
+    # meta_og_image = "https://raw.githubusercontent.com/JugglerX/hugo-whisper-theme/master/images/tn.png"
+    # meta_og_description = "Hugo Whisper is a documentation theme built with Hugo."
+    # meta_twitter_card = "summary"
+    # meta_twitter_site = "@zerostaticio"
+    # meta_twitter_creator = "@zerostaticio"
+
+  [params.logo]
+    mobile = "/images/logo.png"
+    standard  = "/images/logo.png"
+
+  [params.footer]
+    copyright_text = '2024 - Audace Sailing Team'
