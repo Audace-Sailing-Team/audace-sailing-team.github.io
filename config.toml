@@ -33,7 +33,7 @@ weight = 2
   homepage_button_text = 'Dashboard'
   homepage_intro = 'Sito interno per il reparto di Sensoristica di Audace Sailing Team, contenente la documentazione dei vari progetti in corso.'
   homepage_image = ''
-l
+
   ## You can enable to add anchor links to header elements
   # enable_anchor_link = true
 
