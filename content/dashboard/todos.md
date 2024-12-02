@@ -8,6 +8,8 @@ date: 2024-11-28
 ## Meta (sito)
  - [ ] Fare schemi del progetto (unità, protocolli di comunicazione)
  - [ ] Aggiungere *Bill of Materials*
+ - [ ] Aggiungere *Documentazione/Generalità* per risorse generiche
+       (WSL, bash, git, ...)
 
 # Unità Centrale
 ## Elettronica
