@@ -13,6 +13,18 @@ più sensori connessi.
 
 <!--more-->
 
+## Design
+Concettualmente, le UR sono standardizzate nella loro struttura. Esse
+presentano quasi invariabilmente un Arduino (o microcontrollore
+equivalente) capace di comunicare con l'UC via seriale, MQTT o TCP/IP,
+uno o più sensori e un'adeguata fonte di alimentazione.
+
+Un'eccezione è l'UR-GPS/IMU, che acquisisce i dati inerziali
+dell'imbarcazione; necessariamente, essa è collocata in posizione
+prossima al centro di massa del moth, dunque nello stesso luogo (e
+contenitore) dell'UC. Perciò, non si tratta di un'unità *remota* in
+senso stretto, visto che condivide la stessa batteria dell'UC ed è
+collegata ad essa via seriale.
 
 ## Note tecniche
 Ecco alcune note tecniche sulle varie componenti delle unità remote.

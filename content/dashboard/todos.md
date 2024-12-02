@@ -4,14 +4,23 @@ date: 2024-11-28
 ---
 
 <!--more-->
+# Generale
+## Meta (sito)
+ - [ ] Fare schemi del progetto (unità, protocolli di comunicazione)
+ - [ ] Aggiungere *Bill of Materials*
 
 # Unità Centrale
+## Elettronica
+ - [ ] Fare schemi elettrici dell'UC 
 ## Comms
- - [ ] Scrivere metodo di acquisizione dati seriale
- - [ ] Testare metodo di acquisizione dati seriale con Arduino
- - [ ] Implementare metodi di comunicazione TCP/IP
+ - [ ] (*Iacopo*) Scrivere metodo di acquisizione dati seriale
+ - [ ] (*Iacopo*) Testare metodo di acquisizione dati seriale con Arduino
+ - [ ] (*Iacopo*) Implementare metodi di comunicazione TCP/IP
 	   
 ## Data handling
+ - [ ] (*Iacopo, Francesco*) Mettere nero su bianco in documentazione
+       requisiti minimi di analisi dati (e dati da mostrare, refresh
+       rate, ...)
  - [ ] Fornire metodo di conversione a file GPX (*e.g.* con =gpxpy=) 
  - [ ] Definire dati utili e metodi di conversione/manipolazione con
        setup minimale (GPS, IMU, anemometro)
@@ -29,7 +38,8 @@ date: 2024-11-28
 
 # Unità Remote
 ## Anemometro
-
+ - [ ] Fare schemi elettrici 
+ 
 # Testing
 ## *Vacca Boia*
 
