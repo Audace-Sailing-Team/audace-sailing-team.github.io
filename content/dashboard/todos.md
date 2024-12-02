@@ -18,7 +18,8 @@ date: 2024-11-28
  - [ ] (*Iacopo*) Scrivere metodo di acquisizione dati seriale
  - [ ] (*Iacopo*) Testare metodo di acquisizione dati seriale con Arduino
  - [ ] (*Iacopo*) Implementare metodi di comunicazione TCP/IP
-	   
+ - [ ] (*Iacopo*) Scrivere `Communicator`
+ 
 ## Data handling
  - [ ] (*Iacopo, Francesco*) Mettere nero su bianco in documentazione
        requisiti minimi di analisi dati (e dati da mostrare, refresh
