@@ -28,8 +28,6 @@ Markdown, ...) più usati nel progetto.
  - [Write good commit messages](https://cbea.ms/git-commit/): come
    scrivere messaggi di commit chiari, precisi e longevi
    
-## Markdown
-
 ## Altri
  - [Markdown Guide](https://www.markdownguide.org/): una guida
    interattiva al Markdown
