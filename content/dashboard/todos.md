@@ -13,10 +13,13 @@ date: 2024-11-28
 ## Elettronica
  - [ ] Fare schemi elettrici dell'UC 
 ## Comms
- - [ ] (*Iacopo*) Scrivere metodo di acquisizione dati seriale
- - [ ] (*Iacopo*) Testare metodo di acquisizione dati seriale con Arduino
  - [ ] (*Iacopo*) Implementare metodi di comunicazione TCP/IP
- - [ ] (*Iacopo*) Scrivere `Communicator`
+ - [ ] (*Iacopo*) Testare approfonditamente `Communicator`
+ - [ ] (*Iacopo*) Scrivere unit test `central-unit`
+ - [x] (*Iacopo*) Scrivere metodo di acquisizione dati seriale
+ - [x] (*Iacopo*) Testare metodo di acquisizione dati seriale con
+       Arduino
+ - [x] (*Iacopo*) Scrivere `Communicator`
  
 ## Data handling
  - [ ] (*Iacopo, Francesco*) Mettere nero su bianco in documentazione
