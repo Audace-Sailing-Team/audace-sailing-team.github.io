@@ -3,5 +3,10 @@
         "name": "Github",
         "link": "https://github.com/Audace-Sailing-Team",
         "image": "images/social/github.svg"
+    },
+    {
+        "name": "Instagram",
+        "link": "https://www.instagram.com/audace_team/",
+        "image": "images/social/instagram.svg"
     }
 ]
