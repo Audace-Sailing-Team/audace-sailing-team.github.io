@@ -61,11 +61,29 @@ Server Flask:
  - WIP
 
 ### Protocollo MQTT
+#### Quality of Service (QoS)
+Il protocollo MQTT fornisce differenti livelli di QoS, *i.e.*
+differenti metodi di consegna dei broadcasts e diversi livelli di
+reliability. In particolare, individuiamo
+ - **QoS 0** (*best effort*): il protocollo cerca di recapitare i
+   messaggi senza restrizioni di alcun genere; essi potrebbero essere
+   recapitati più volte, o affatto
+ - **QoS 1** (*at least once*): è garantito il recapito del messaggio
+   almeno una volta, con potenziali duplicati
+ - **QoS 2** (*exactly effort*): è garantito il recapito del messaggio
+   una e una sola volta, con un *handshake* fra broker e destinatario
+   per garantire la consegna effettiva del broadcast
+   
+Ai nostri scopi, il minimo livello accettabile è QoS 1; QoS 2 è ideale
+ma potrebbe introdurre ritardi e latenze insostenibili. 
+   
 Alcuni riferimenti:
  - [Mosquitto test broker](https://test.mosquitto.org/)
  - [paho-mqtt
    documentation](https://eclipse.dev/paho/files/paho.mqtt.python/html/index.html)
- - [Sending Data over MQTT](https://docs.arduino.cc/tutorials/uno-wifi-rev2/uno-wifi-r2-mqtt-device-to-device/)
+ - [Sending Data over
+   MQTT](https://docs.arduino.cc/tutorials/uno-wifi-rev2/uno-wifi-r2-mqtt-device-to-device/)
+ - [A Beginner’s Guide to MQTT: Understanding MQTT, Mosquitto Broker, and Paho Python MQTT Client](https://medium.com/@potekh.anastasia/a-beginners-guide-to-mqtt-understanding-mqtt-mosquitto-broker-and-paho-python-mqtt-client-990822274923)
 
 ### Comunicazione via cavo RasPi/Arduino
 Non ci dovrebbero essere problemi: i due possono interagire via

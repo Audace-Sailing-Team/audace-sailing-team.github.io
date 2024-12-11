@@ -13,8 +13,9 @@ date: 2024-11-28
 ## Elettronica
  - [ ] Fare schemi elettrici dell'UC 
 ## Comms
- - [ ] (*Iacopo*) Implementare metodi di comunicazione TCP/IP
  - [ ] (*Iacopo*) Testare approfonditamente `Communicator`
+ - [ ] (*Iacopo*) Aggiornare UML
+ - [ ] (*Iacopo*) Implementare metodi di comunicazione TCP/IP
  - [ ] (*Iacopo*) Scrivere unit test `central-unit`
  - [x] (*Iacopo*) Scrivere metodo di acquisizione dati seriale
  - [x] (*Iacopo*) Testare metodo di acquisizione dati seriale con
