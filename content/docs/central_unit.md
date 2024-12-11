@@ -124,6 +124,15 @@ qualche task in quel secondo di attesa fra un campionamento e il
 successivo; in tal caso, basta trasformare tutto in funzioni asincrone
 e usare `await` sugli `asyncio.sleep`.
 
+Un'accortezza adottata per garantire la sincronia dei dati passati da
+`Communicator` a `Aggregator` è un metodo *getter* esterno invece di
+un dizionario aggiornato *in place*.  Passare il dizionario `raw_data`
+di `Communicator` nell'inizializzatore di `Aggregator` non è una
+strategia valida: esso non viene aggiornato *in place* durante il
+ciclo non bloccante di raccolta dati di `Aggregator`. Il *getter* è
+utile per recuperate in *runtime* il dizionario aggiornato di
+`Communicator`.
+
 ### Gestione dei dati
 I vari dataset possono essere esportati in `.json` ed essere gestiti
 remotamente con *TinyDB* o un database relazionale più serio. Pare che
