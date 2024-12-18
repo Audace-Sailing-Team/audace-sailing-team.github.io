@@ -58,7 +58,9 @@ Classi di analisi dati:
    preservare su un eventuale database esterno
    
 Server Flask:
- - WIP
+ - `WebApp`: classe che avvia e fornisce un server Flask in maniera
+   non bloccante, capace di acquisire dati da un `Database` e da
+   dizionari (*e.g.* stato delle UR) attraverso funzioni *getter*
 
 ### Protocollo MQTT
 #### Quality of Service (QoS)
@@ -95,6 +97,59 @@ Alcuni riferimenti:
  - [Serial Communication between Python and
    Arduino](https://projecthub.arduino.cc/ansh2919/serial-communication-between-python-and-arduino-663756)
  - [pySerial short intro](https://pyserial.readthedocs.io/en/stable/shortintro.html)
+
+### Numerazione delle unità remote
+Ai fini della comunicazione con l'UC, ogni unità remota ha un
+*indirizzo* ben preciso
+
+```
+rm<numero>/<sensore>/<grandezza>
+```
+
+ad esempio, i dati sulla longitudine sono comunicati dall'UR 1, e sono
+presi dal sensore GPS; dunque, l'indirizzo sarà
+
+```
+rm1/gps/long
+```
+
+Attualmente, la numerazione delle unità remote esistenti o in sviluppo
+è
+ - **rm1**: GPS-IMU
+ - **rm2**: anemometro
+
+Le grandezze fisiche di interesse sono, per le varie unità remote
+ - *gps/lat*: latitudine
+ - *gps/long*: longitudine
+ - *wind/speed*: velocità del vento 
+ - TBD
+ 
+### Stato delle unità remote
+I tre possibili stati delle unità remote sono:
+ - **online** (verde): l'UR è attiva e prende attivamente dati
+ - **non-communicating** (giallo): l'UR non ha inviato dati negli
+   ultimi 30s, o c'è un problema di comunicazione con l'UC
+ - **offline** (rosso): l'UR non comunica con l'UC. 
+
+L'individuazione dello stato di ogni UR è lasciato a `Communicator`;
+esso è accessibile con l'attributo `status`, accessibile *in place*
+con un getter.
+
+### Comunicazione UC -> UR
+In linea di principio è possibile comunicare con le UR dall'UC per
+inviare comandi; ciò è triviale con MQTT, semplice con la
+comunicazione seriale, e fattibile con TCP/IP.
+
+L'unico possibile problema è dal lato delle UR: è necessario un loop
+bloccante di ascolto per ricevere eventuali messaggi dall'UC, che può
+introdurre latenze nella comunicazione.
+
+Qualora si scegliesse di implementare la comunicazione 2-way, si
+propone l'uso dell'indirizzo 
+
+```
+rm<numero>/sudo
+```
 
 ### Telnet, TCP/IP e Python
 Non è taboo implementare anche l'uso del protocollo TCP/IP per
@@ -143,10 +198,26 @@ Alcuni riferimenti:
 
 ### Flask: applicazioni web con Python
 Alcuni riferimenti:
- - [Python Web Applications: Deploy Your Script as a Flask App](https://realpython.com/python-web-applications/#test-locally)
+ - [Python Web Applications: Deploy Your Script as a Flask
+   App](https://realpython.com/python-web-applications/#test-locally)
+
+#### Grafici interattivi: Flask e Bokeh
+In linea di massima è possibile mostrare grafici interattivi su pagine
+web con *Bokeh*. Sono disponibili due modalità principali:
+ - *standalone documents*: script indipendenti, che non richiedono un
+   server *Bokeh* attivo e garantiscono un livello limitato di
+   interazione; non si aggiornano dinamicamente, *e.g.* all'arrivo di
+   nuovi dati
+ - *Bokeh applications*: applicazioni totalmente interattive, che si
+   appoggiano a un server *Bokeh* in background; possono aggiornarsi
+   dinamicamente.
+ 
+Alcuni riferimenti:
  - [Interactive Data Visualization in Python With Bokeh](https://realpython.com/python-data-visualization-bokeh/)
  - [Embedding a bokeh app in
    flask](https://stackoverflow.com/questions/29949712/embedding-a-bokeh-app-in-flask)
- - [Bokeh documentation](https://docs.bokeh.org/en/latest/index.html)
+ - [Bokeh in web
+   pages](https://docs.bokeh.org/en/latest/docs/user_guide/output/embed.html#ug-output-embed)
+ - [Bokeh server APIs](https://docs.bokeh.org/en/latest/docs/user_guide/server/library.html)
  - [Bokeh demo](https://demo.bokeh.org/)
 
