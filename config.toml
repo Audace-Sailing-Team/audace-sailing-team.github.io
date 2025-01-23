@@ -26,8 +26,14 @@ name = "Documentazione"
 url = "/docs"
 weight = 2
 
+[[menu.main]]
+name = "Risorse"
+url = "/tutorials"
+weight = 3
+
+
 [params]
-  mainSections = ['docs', 'dashboard', 'tutorial']
+  mainSections = ['docs', 'dashboard', 'tutorials']
   google_analytics_id=""
   homepage_button_link = '/dashboard'
   homepage_button_text = 'Dashboard'

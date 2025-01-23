@@ -1,7 +1,7 @@
 ---
 title: 'Risorse'
 date: 2024-11-28
-weight: 10
+weight: 1
 ---
 
 Per comprendere le dinamiche del progetto e adoperare al meglio gli
@@ -13,7 +13,11 @@ del progetto.
 
 <!--more-->
 
-# Codice
+# Guide e tutorial
+Nella barra laterale sono presenti alcuni tutorial e guide *in-house*
+relative a elementi essenziali del progetto.
+
+# Risorse esterne
 Ecco alcune risorse per i linguaggi (Python, C) e gli strumenti (git,
 Markdown, ...) più usati nel progetto.
 
