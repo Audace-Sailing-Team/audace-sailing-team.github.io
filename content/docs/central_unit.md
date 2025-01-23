@@ -188,14 +188,6 @@ ciclo non bloccante di raccolta dati di `Aggregator`. Il *getter* è
 utile per recuperate in *runtime* il dizionario aggiornato di
 `Communicator`.
 
-### Gestione dei dati
-I vari dataset possono essere esportati in `.json` ed essere gestiti
-remotamente con *TinyDB* o un database relazionale più serio. Pare che
-*TinyDB* sia abbastanza versatile per giocare coi dati.
-
-Alcuni riferimenti:
- - [TinyDB docs](https://tinydb.readthedocs.io/en/latest/getting-started.html)
-
 ### Flask: applicazioni web con Python
 Alcuni riferimenti:
  - [Python Web Applications: Deploy Your Script as a Flask
