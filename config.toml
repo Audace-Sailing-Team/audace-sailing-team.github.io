@@ -27,7 +27,7 @@ url = "/docs"
 weight = 2
 
 [params]
-  mainSections = ['docs', 'dashboard']
+  mainSections = ['docs', 'dashboard', 'tutorial']
   google_analytics_id=""
   homepage_button_link = '/dashboard'
   homepage_button_text = 'Dashboard'
