@@ -4,9 +4,9 @@ date: 2024-11-28
 weight: 2
 ---
 
-L'**unità centrale (UC)** è costituita da un Raspberry Pi 4 B+, sul quale
-gira un software *in-house* scritto in Python, un broker MQTT e un
-server Flask. 
+L'**unità centrale (UC)** è costituita da un Raspberry Pi 4 B+, sul
+quale gira un software *in-house* (Audace Mothics `lite`) scritto in
+Python, un broker MQTT e un server Flask.
 
 
 <!--more-->
@@ -22,7 +22,9 @@ I compiti dell'UC sono
  - access point Wi-Fi per la connessione delle unità remote.
 
 ## Software
-Ecco alcune note, riflessioni e opinioni sulla struttura del progetto.
+Ecco alcune note, riflessioni e opinioni sulla struttura del
+progetto. Tutti i riferimenti ad `Aggregator`, `WebApp` e API sono
+nella sezione relativa all'analisi post-mortem e a Mothics.
 
 ### Struttura generale 
 
@@ -62,43 +64,8 @@ Server Flask:
    non bloccante, capace di acquisire dati da un `Database` e da
    dizionari (*e.g.* stato delle UR) attraverso funzioni *getter*
 
-### Protocollo MQTT
-#### Quality of Service (QoS)
-Il protocollo MQTT fornisce differenti livelli di QoS, *i.e.*
-differenti metodi di consegna dei broadcasts e diversi livelli di
-reliability. In particolare, individuiamo
- - **QoS 0** (*best effort*): il protocollo cerca di recapitare i
-   messaggi senza restrizioni di alcun genere; essi potrebbero essere
-   recapitati più volte, o affatto
- - **QoS 1** (*at least once*): è garantito il recapito del messaggio
-   almeno una volta, con potenziali duplicati
- - **QoS 2** (*exactly effort*): è garantito il recapito del messaggio
-   una e una sola volta, con un *handshake* fra broker e destinatario
-   per garantire la consegna effettiva del broadcast
-   
-Ai nostri scopi, il minimo livello accettabile è QoS 1; QoS 2 è ideale
-ma potrebbe introdurre ritardi e latenze insostenibili. 
-   
-Alcuni riferimenti:
- - [Mosquitto test broker](https://test.mosquitto.org/)
- - [paho-mqtt
-   documentation](https://eclipse.dev/paho/files/paho.mqtt.python/html/index.html)
- - [Sending Data over
-   MQTT](https://docs.arduino.cc/tutorials/uno-wifi-rev2/uno-wifi-r2-mqtt-device-to-device/)
- - [A Beginner’s Guide to MQTT: Understanding MQTT, Mosquitto Broker, and Paho Python MQTT Client](https://medium.com/@potekh.anastasia/a-beginners-guide-to-mqtt-understanding-mqtt-mosquitto-broker-and-paho-python-mqtt-client-990822274923)
-
-### Comunicazione via cavo RasPi/Arduino
-Non ci dovrebbero essere problemi: i due possono interagire via
-seriale con cavo USB, senza ulteriori complicazioni. Via Python, si
-può definire una classe opportuna che sfrutta `pyserial`, *e.g.*
-`SerialInterface`, che stia in ascolto di dati dall'Arduino.
-
-Alcuni riferimenti:
- - [Serial Communication between Python and
-   Arduino](https://projecthub.arduino.cc/ansh2919/serial-communication-between-python-and-arduino-663756)
- - [pySerial short intro](https://pyserial.readthedocs.io/en/stable/shortintro.html)
-
-### Numerazione delle unità remote
+### `Communicator`
+#### Numerazione delle unità remote
 Ai fini della comunicazione con l'UC, ogni unità remota ha un
 *indirizzo* ben preciso
 
@@ -123,19 +90,63 @@ Le grandezze fisiche di interesse sono, per le varie unità remote
  - *gps/long*: longitudine
  - *wind/speed*: velocità del vento 
  - TBD
- 
-### Stato delle unità remote
-I tre possibili stati delle unità remote sono:
- - **online** (verde): l'UR è attiva e prende attivamente dati
- - **non-communicating** (giallo): l'UR non ha inviato dati negli
-   ultimi 30s, o c'è un problema di comunicazione con l'UC
- - **offline** (rosso): l'UR non comunica con l'UC. 
 
-L'individuazione dello stato di ogni UR è lasciato a `Communicator`;
-esso è accessibile con l'attributo `status`, accessibile *in place*
-con un getter.
+#### Protocollo MQTT
+Il protocollo MQTT è la scelta primaria per comunicare con le UR
+(eccetto GPS-IMU, collocate assieme a UC e alimentate dallo stesso
+pacco batterie).
 
-### Comunicazione UC -> UR
+##### Quality of Service (QoS)
+Il protocollo MQTT fornisce differenti livelli di QoS, *i.e.*
+differenti metodi di consegna dei broadcasts e diversi livelli di
+reliability. In particolare, individuiamo
+ - **QoS 0** (*best effort*): il protocollo cerca di recapitare i
+   messaggi senza restrizioni di alcun genere; essi potrebbero essere
+   recapitati più volte, o affatto
+ - **QoS 1** (*at least once*): è garantito il recapito del messaggio
+   almeno una volta, con potenziali duplicati
+ - **QoS 2** (*exactly effort*): è garantito il recapito del messaggio
+   una e una sola volta, con un *handshake* fra broker e destinatario
+   per garantire la consegna effettiva del broadcast
+   
+Ai nostri scopi, il minimo livello accettabile è QoS 1; QoS 2 è ideale
+ma potrebbe introdurre ritardi e latenze insostenibili. 
+
+Il QoS deve essere indicato e garantito da chi pubblica il messaggio
+(nel nostro caso, l'UR).
+   
+Alcuni riferimenti:
+ - [Mosquitto test broker](https://test.mosquitto.org/)
+ - [paho-mqtt
+   documentation](https://eclipse.dev/paho/files/paho.mqtt.python/html/index.html)
+ - [Sending Data over
+   MQTT](https://docs.arduino.cc/tutorials/uno-wifi-rev2/uno-wifi-r2-mqtt-device-to-device/)
+ - [A Beginner’s Guide to MQTT: Understanding MQTT, Mosquitto Broker, and Paho Python MQTT Client](https://medium.com/@potekh.anastasia/a-beginners-guide-to-mqtt-understanding-mqtt-mosquitto-broker-and-paho-python-mqtt-client-990822274923)
+
+#### Comunicazione seriale
+La comunicazione fra RasPi e Arduino può avvenire anche via
+seriale con cavo USB, senza ulteriori complicazioni. Via Python, si
+può definire una classe opportuna che sfrutta `pyserial`, *e.g.*
+`SerialInterface`, che stia in ascolto di dati dall'Arduino.
+
+Alcuni riferimenti:
+ - [Serial Communication between Python and
+   Arduino](https://projecthub.arduino.cc/ansh2919/serial-communication-between-python-and-arduino-663756)
+ - [pySerial short intro](https://pyserial.readthedocs.io/en/stable/shortintro.html)
+
+#### Telnet, TCP/IP e Python
+Non è taboo implementare anche l'uso del protocollo TCP/IP per
+comunicare a basso livello con i moduli remoti. I motivi di una scelta
+simile sono vari,
+ - sfruttare il lavoro già fatto in questo senso lato Arduino
+ - avere un metodo di backup di comunicazione in caso di problemi con
+   il broker MQTT, o di eccessiva latenza con invio e ricezione di
+   broadcasts MQTT
+
+Alcuni riferimenti:
+ - [Socket Programming in Python](https://realpython.com/python-sockets/)
+
+#### Comunicazione UC -> UR
 In linea di principio è possibile comunicare con le UR dall'UC per
 inviare comandi; ciò è triviale con MQTT, semplice con la
 comunicazione seriale, e fattibile con TCP/IP.
@@ -151,17 +162,10 @@ propone l'uso dell'indirizzo
 rm<numero>/sudo
 ```
 
-### Telnet, TCP/IP e Python
-Non è taboo implementare anche l'uso del protocollo TCP/IP per
-comunicare a basso livello con i moduli remoti. I motivi di una scelta
-simile sono vari,
- - sfruttare il lavoro già fatto in questo senso lato Arduino
- - avere un metodo di backup di comunicazione in caso di problemi con
-   il broker MQTT, o di eccessiva latenza con invio e ricezione di
-   broadcasts MQTT
-
-Alcuni riferimenti:
- - [Socket Programming in Python](https://realpython.com/python-sockets/)
+### `Aggregator`
+Qui sono presenti tutte le informazioni relative all'interazione fra
+`Aggregator` e `Communicator`; i dettagli sulla struttura di
+`Aggregator` sono disponibili nella sezione *analisi post-mortem*.
 
 ### AsyncIO: asincronia fra `Communicator` e `Aggregator`
 `Communicator`, per quanto concerne il protocollo MQTT (via
@@ -188,28 +192,19 @@ ciclo non bloccante di raccolta dati di `Aggregator`. Il *getter* è
 utile per recuperate in *runtime* il dizionario aggiornato di
 `Communicator`.
 
-### Flask: applicazioni web con Python
-Alcuni riferimenti:
- - [Python Web Applications: Deploy Your Script as a Flask
-   App](https://realpython.com/python-web-applications/#test-locally)
+## Hardware
+Ci sono alcuni accorgimenti di cui tenere conto nello sviluppo
+dell'UC.
 
-#### Grafici interattivi: Flask e Bokeh
-In linea di massima è possibile mostrare grafici interattivi su pagine
-web con *Bokeh*. Sono disponibili due modalità principali:
- - *standalone documents*: script indipendenti, che non richiedono un
-   server *Bokeh* attivo e garantiscono un livello limitato di
-   interazione; non si aggiornano dinamicamente, *e.g.* all'arrivo di
-   nuovi dati
- - *Bokeh applications*: applicazioni totalmente interattive, che si
-   appoggiano a un server *Bokeh* in background; possono aggiornarsi
-   dinamicamente.
- 
-Alcuni riferimenti:
- - [Interactive Data Visualization in Python With Bokeh](https://realpython.com/python-data-visualization-bokeh/)
- - [Embedding a bokeh app in
-   flask](https://stackoverflow.com/questions/29949712/embedding-a-bokeh-app-in-flask)
- - [Bokeh in web
-   pages](https://docs.bokeh.org/en/latest/docs/user_guide/output/embed.html#ug-output-embed)
- - [Bokeh server APIs](https://docs.bokeh.org/en/latest/docs/user_guide/server/library.html)
- - [Bokeh demo](https://demo.bokeh.org/)
+### Spegnimento e riavvio
+Lo spegnimento deve essere *sicuro*, *i.e.* equivalente a
+ - chiudere eventuali processi in corso, ognuno secondo le proprie
+   direttive di arresto (*e.g.* interruzione del loop e salvataggio
+   per `Aggregator`, disconnessione di `Communicator`, ...)
+ - `sudo shutdown`
 
+Staccare il cavo di alimentazione non è un modo sicuro di spegnere
+l'UC. È necessario introdurre un bottone di spegnimento, che, alla
+pressione, avvia uno script che esegue i due compiti indicati sopra. 
+Può essere utile introdurre anche un comando remoto nell'interfaccia
+grafica del software. 
