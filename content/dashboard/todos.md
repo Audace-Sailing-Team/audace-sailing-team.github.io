@@ -13,7 +13,9 @@ date: 2024-11-28
  
 # Unità Centrale
 ## Elettronica
- - [ ] Fare schemi elettrici dell'UC 
+ - [ ] Fare schemi elettrici dell'UC (alimentazione)
+ - [ ] Studiare spegimento *sicuro* con bottone
+ 
 ## Comms
  - [ ] (*Iacopo*) Testare approfonditamente `Communicator`
  - [ ] (*Iacopo*) Implementare metodi di comunicazione TCP/IP
@@ -22,8 +24,9 @@ date: 2024-11-28
  - [x] (*Iacopo*) Testare metodo di acquisizione dati seriale con
        Arduino
  - [x] (*Iacopo*) Scrivere `Communicator`
- 
-## Data handling (`Aggregator`)
+
+## Mothics
+### Data handling (`Aggregator` e `Database`)
  - [ ] (*Iacopo, Francesco*) Mettere nero su bianco in documentazione
        requisiti minimi di analisi dati (e dati da mostrare, refresh
        rate, ...)
@@ -31,15 +34,15 @@ date: 2024-11-28
        setup minimale (GPS, IMU, anemometro)
  - [ ] Fornire metodo di conversione a file GPX (*e.g.* con `gpxpy`) 
 
-## Server
- - [ ] (*Iacopo*) Studiare disaccoppiamento live/post-mortem
+### Server
+ - [x] (*Iacopo*) Studiare disaccoppiamento live/post-mortem
  - [x] (*Iacopo*) Strutturare scheletro di pagina Flask
  - [x] (*Iacopo*) Test di visualizzazione della pagina barebones
 
-### Analisi live (`WebApp`)
+### Analisi live (Mothics `lite`)
  - [ ] (*Iacopo*) Aggiungere settings (*i.e.* threshold offline/noncomm, ...)
 
-### Analisi post-mortem (`WebApp+`)
+### Analisi post-mortem (Mothics `full`)
  - [ ] (*Iacopo*) Setup `TinyDB`
  - [ ] (*Iacopo*) Adattare `WebApp` live a post mortem
  - [ ] (*Iacopo*) Implementare visualizzazione track
