@@ -54,14 +54,14 @@ Classi di analisi dati:
 *Dataclasses*:
  - `DataPoint`: singolo punto dati generato da `Aggregator` a
    intervalli regolari
- - `Database`: collezione di `DataPoint` (ed eventuali metadati) che
+ - `Track`: collezione di `DataPoint` (ed eventuali metadati) che
    permette salvataggio su file, conversione e manipolazione dei dati;
    contiene i dati da visualizzare sulla pagina intranet e da
    preservare su un eventuale database esterno
    
 Server Flask:
  - `WebApp`: classe che avvia e fornisce un server Flask in maniera
-   non bloccante, capace di acquisire dati da un `Database` e da
+   non bloccante, capace di acquisire dati da un `Track` e da
    dizionari (*e.g.* stato delle UR) attraverso funzioni *getter*
 
 ### `Communicator`

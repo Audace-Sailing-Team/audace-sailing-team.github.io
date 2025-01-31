@@ -64,8 +64,7 @@ pari a quella della track, o a suoi multipli), è possibile emulare il
 "comportamento dei dati" in tempo reale e di visualizzarli in maniera analoga. 
 
 Un altro elemento da disaccoppiare è la verifica dello stato dei
-sensori, inizialmente gestito da `Communicator` e attualmente delegato
-ad `Aggregator`.
+sensori.
 
 #### Stato delle UR
 I tre possibili stati delle unità remote sono:
@@ -74,14 +73,16 @@ I tre possibili stati delle unità remote sono:
    ultimi 30s, o c'è un problema di comunicazione con l'UC
  - **offline** (rosso): l'UR non comunica con l'UC. 
 
-Lo stato dei sensori è un'informazione *derivata* dai
-dati ottenuti dai sensori stessi, ergo può essere ricavata in maniera
-indipendente, e non necessariamente in fase di presa dati. Per questa
-motivazione, lo stato
- 1. non è passato ad `Aggregator` attraverso il getter che agisce su
-    `raw_data` di `Communicator`
- 2. può non essere salvato nelle tracce di output, ma ricavato alla
-    lettura del file.
+In una certa misura, lo stato dei sensori è un'informazione *derivata*
+dai dati ottenuti dai sensori stessi, ergo può essere ricavata in
+maniera indipendente, e non necessariamente in fase di presa dati.
+Dunque, è necessario memorizzare in fase di aggregazione
+(`Aggregator.aggregate`) il timestamp dell'ultimo dato raccolto da un
+dato sensore; l'informazione è recuperata in `WebApp` e, attraverso
+una funzione *helper*, convertita nello stato del sensore.
+
+Questo disaccoppiamento permette di implementare più facilmente le
+routine necessarie per caricare un file da analizzare *post-mortem*.
 
 ## Funzionalità
 Al minimo, Mothics deve:
@@ -94,7 +95,7 @@ Al minimo, Mothics deve:
    successivo).
 
 ## Database
-I vari dataset possono essere esportati in `.json` ed essere gestiti
+Le varie tracks possono essere esportati in `.json` ed essere gestiti
 con *TinyDB* o un database relazionale più serio. Pare che *TinyDB*
 sia abbastanza versatile per giocare coi dati.
 

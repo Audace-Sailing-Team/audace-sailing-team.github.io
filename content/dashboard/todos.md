@@ -5,10 +5,19 @@ date: 2024-11-28
 
 <!--more-->
 # Generale
+## Post arrivo componenti
+ - [ ] [1] Setup RasPi (access point, MQTT, Mothics `lite`)
+ - [ ] [1] Conversione *Vacca Boia* in unità remota (scrittura
+       software, riconfigurazione hardware)
+ - [ ] [2] Assemblaggio pacco batterie
+ - [ ] [3] Assemblaggio unità remota anemometro (almeno software)
+ - [ ] [4] Test, test, test
+
 ## Meta (sito)
- - [ ] (*Francesco, Iacopo*) Creare repo per dati
+ - [ ] [1] (*Francesco, Iacopo*) Creare repo per dati
+ - [ ] [1] Caricare dati allenamento 01/2025
+ - [ ] [2] (*Francesco*) Riempire *Bill of Materials*
  - [ ] Fare schemi del progetto (unità, protocolli di comunicazione)
- - [ ] (*Francesco*) Riempire *Bill of Materials*
  - [ ] (*Iacopo*) Aggiornare UML
  
 # Unità Centrale
@@ -27,7 +36,7 @@ date: 2024-11-28
 
 ## Mothics
 ### Data handling (`Aggregator` e `Database`)
- - [ ] (*Iacopo, Francesco*) Mettere nero su bianco in documentazione
+ - [ ] [1] (*Iacopo, Francesco*) Mettere nero su bianco in documentazione
        requisiti minimi di analisi dati (e dati da mostrare, refresh
        rate, ...)
  - [ ] Definire dati utili e metodi di conversione/manipolazione con
@@ -50,8 +59,8 @@ date: 2024-11-28
        velocità, ...)
 
 ## Raspberry Pi
- - [ ] (*Francesco*) Acquisizione Raspberry Pi
  - [ ] (*Francesco*) Studiare connettività mobile (4G) RasPi
+ - [x] (*Francesco*) Acquisizione Raspberry Pi
 
 ### Hands-on
  - [ ] Setup IP statici
