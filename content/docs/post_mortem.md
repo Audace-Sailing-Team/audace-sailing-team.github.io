@@ -63,10 +63,29 @@ già esistenti e di un "orologio interno" (*i.e.* un loop di durata
 pari a quella della track, o a suoi multipli), è possibile emulare il
 "comportamento dei dati" in tempo reale e di visualizzarli in maniera analoga. 
 
+#### Selezione della track
+*PLACEHOLDER*
+
+#### Stream dei dati non-live
+Il passaggio dei dati raccolti in tempo reale alla `WebApp` avviene
+grazie a una `Track` creata e aggiornata in tempo reale da
+`Aggregator` e richiamata attraverso un getter. 
+
+Per mostrare i dati presenti su un file `.json`, `Aggregator` non è
+utile ai nostri scopi: occorre semplicemente una `Track` con un metodo
+`get_current()` che fornisce incrementalmente i dati a ogni chiamata. 
+
+Il metodo `get_current()` mantiene un'indice interno delle chiamate
+ricevute; a ogni chiamata, è generata una traccia fittizia che
+contiene un numero di `DataPoint` pari al numero di chiamate ricevute da
+`get_current()`. In pratica, a ogni chiamata del metodo è inserito un
+nuovo punto dati, agendo come se esso fosse stato appena inserito da
+`Aggregator`.
+ 
+#### Stato delle UR
 Un altro elemento da disaccoppiare è la verifica dello stato dei
 sensori.
 
-#### Stato delle UR
 I tre possibili stati delle unità remote sono:
  - **online** (verde): l'UR è attiva e prende attivamente dati
  - **non-communicating** (giallo): l'UR non ha inviato dati negli
@@ -78,8 +97,10 @@ dai dati ottenuti dai sensori stessi, ergo può essere ricavata in
 maniera indipendente, e non necessariamente in fase di presa dati.
 Dunque, è necessario memorizzare in fase di aggregazione
 (`Aggregator.aggregate`) il timestamp dell'ultimo dato raccolto da un
-dato sensore; l'informazione è recuperata in `WebApp` e, attraverso
-una funzione *helper*, convertita nello stato del sensore.
+dato sensore e il timestamp dell'istante nel quale è avvenuta
+l'aggregazione dei dati dei sensori; l'informazione è recuperata in
+`WebApp` e, attraverso una funzione *helper*, convertita nello stato
+del sensore.
 
 Questo disaccoppiamento permette di implementare più facilmente le
 routine necessarie per caricare un file da analizzare *post-mortem*.
