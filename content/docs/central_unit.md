@@ -28,8 +28,6 @@ nella sezione relativa all'analisi post-mortem e a Mothics.
 
 ### Struttura generale 
 
-![alternative text](//www.plantuml.com/plantuml/png/hLLDJnin4Btlht1leMNp0n2geFI2r8zKHUe18MlYdImkNdjbpz8YslzUZwtW08hYIdk9vetNRvxVU9opGE1f6appPlJG3o2cW9UMq0_OQI1SWRg37eFOW0dODCf024AX9Gz6JbRJKhbXa9htR43XyYB2c5T0pZysuiVbgX7lX8TViWE24z5fHStV6gOFaBHa91vVqt16EMjHqUA8GQV3CpnEQwF3RGHL1Jz_kxfwKV3M1R8mu8duuYmcJkUfe3l4KOBHzrXov4QjGi55z3QZZ4PB1HlNz-WBhZoKQ8LqLkwivaJPKN83XW0zvaJ1Ke4nwzZaMe-kBbR5ejBVETlm7Rq6irEbs1x8CrZ3r7cWw7dSnOcGjYGd_jT51Z4Yj7lrGTzxxFb2By-VmYphTM_JEUx1b0olho5WoVZ9Mctx_HUWRFcO8qnzt3W_0CbqmHRfD_StyadZtBWu4hnxgnVpwTACRqCtvWX_iwD9-zvpRrKiMSJAQKlvqAG7ZAJ3UC92aU5o6sGBnYbJH_rQqNKWVopExSDDJI4ESXrEov7hncdwf0DTFmcvuVMDHjD97i-u_dKaxIoOQ_wGAzwaRw3hCiNYIVLn8jvrWPnKuNwnqGQPxSNIp-3iyxK82BrSFqWcbHviZujaSqeS2xHTYd9xP5GZvLwRWoO-C4zI_E20CM_Rzb2Jclf7zVHFExNrR-Aip6NCv-VUVQMQsdyhuTeAB-QbBKRCGpo32wUjRolUlmCNDTAOAfgAbxRjslUlHwOvGzjDW_a7)
-
 Classi di comunicazione:
  - `Communicator`: classe che aggrega i vari protocolli di
    comunicazione usati, interroga *e.g.* porta seriale e broker MQTT,
@@ -40,11 +38,7 @@ Classi di comunicazione:
  - `BaseInterface`: ABC per le classi specifiche di comunicazione
    `MQTTInterface`, `SerialInterface`
 
-In via più semplice, si può scrivere un'unica classe `Communicator`
-che contiene tutti i possibili metodi per tutti i protocolli di
-comunicazione. Rigido, poco estendibile.
-
-Classi di analisi dati:
+Classe di aggregazione dati:
  - `Aggregator`: classe che campiona a intervalli regolari e aggrega
    tutti i dati 'raw' forniti da `Communicator`, ne permette una prima
    analisi dati e li immagazzina in *dataclasses* apposite che ne
@@ -204,7 +198,7 @@ Lo spegnimento deve essere *sicuro*, *i.e.* equivalente a
  - `sudo shutdown`
 
 Staccare il cavo di alimentazione non è un modo sicuro di spegnere
-l'UC. È necessario introdurre un bottone di spegnimento, che, alla
-pressione, avvia uno script che esegue i due compiti indicati sopra. 
-Può essere utile introdurre anche un comando remoto nell'interfaccia
-grafica del software. 
+l'UC. È necessario utilizzare il bottone di spegnimento, che, alla
+pressione, avvia uno script che esegue i due compiti indicati sopra.
+Alternativamente, è presente un comando nell'interfaccia da linea di
+comando di Mothics.

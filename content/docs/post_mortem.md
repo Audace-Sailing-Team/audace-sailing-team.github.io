@@ -6,7 +6,7 @@ weight: 4
 
 L'**analisi dati** include tutte le procedure di
 visualizzazione, analisi e archiviazione dei dati relativi a uscite in
-mare. Il progetto (**Audace Mothics** `full`) include un'interfaccia
+mare. Il progetto (**Audace Mothics Analytics**) include un'interfaccia
 web, basata su un backend in *Python*.
 
 <!--more-->
@@ -28,43 +28,15 @@ dunque, la *codebase* è essenzialmente analoga, così come la struttura
 dell'interfaccia.
 
 ### Deployment
-Essendo la *codebase* sostanzialmente identica fra UC e analisi
-post-mortem, si può pensare a Mothics come a un pacchetto Python
-disponibile in due versioni
- - `full`: il software completo, usato per l'analisi post-mortem
- - `lite`: tutto ciò che occorre per visualizzare i dati in tempo
-   reale dall'UC.
-   
-Dividere i due pacchetti sarebbe abbastanza facile; occorre un
-*Makefile* con due diverse procedure di installazione, accessibili con
-comandi diversi
-
-```
-	make install-full    # full Mothics installation for post-mortem analysis
-	make install-lite    # light Mothics installation for live analysis on moth
-```
-
-Nel caso si volesse inserire il pacchetto su PyPI, è comunque
-possibile differenziare le due installazioni, *e.g.*
-
-```
-	pip install mothics          # full Mothics installation for post-mortem analysis
-	pip install mothics[lite]    # light Mothics installation for live analysis on moth
-```
+Attualmente, Mothics e Mothics Analysis sono due software separati,
+viste le divergenze emerse nello sviluppo degli applicativi.
 
 ### Disaccoppiamento e stream di dati
-Qualora si dovesse procedere con l'opzione del "software unico con due
-installazioni diverse", sarebbe necessario effettuare un disaccoppiamento fra la
-fonte dei dati e la visualizzazione web.  
-
 Allo stato attuale, `Aggregator` è a tutti gli effetti la fonte dei
 dati; con l'aggiunta di un metodo o attributo per la lettura di track
 già esistenti e di un "orologio interno" (*i.e.* un loop di durata
 pari a quella della track, o a suoi multipli), è possibile emulare il
 "comportamento dei dati" in tempo reale e di visualizzarli in maniera analoga. 
-
-#### Selezione della track
-*PLACEHOLDER*
 
 #### Stream dei dati non-live
 Il passaggio dei dati raccolti in tempo reale alla `WebApp` avviene
@@ -106,13 +78,12 @@ Questo disaccoppiamento permette di implementare più facilmente le
 routine necessarie per caricare un file da analizzare *post-mortem*.
 
 ## Funzionalità
-Al minimo, Mothics deve:
+Al minimo, Mothics Analysis deve:
  - gestire un database locale (e potenzialmente remoto) di *tracks*,
    *i.e.* dati raccolti durante un'uscita in mare
  - permettere la selezione di una singola track e di visualizzarne i
    dati in maniera sintetica e interattiva
-
-- confrontare i dati (perlomeno medi) fra varie tracks (obiettivo
+ - confrontare i dati (perlomeno medi) fra varie tracks (obiettivo
    successivo).
 
 ## Database
@@ -124,8 +95,8 @@ Alcuni riferimenti:
  - [TinyDB docs](https://tinydb.readthedocs.io/en/latest/getting-started.html)
 
 ### Salvataggio
-Il salvataggio dei dati concerne esclusivamente la versione
-`lite`. Esso deve avvenire in diversi momenti
+Il salvataggio dei dati concerne esclusivamente la versione di Mothics
+sulle UC. Esso deve avvenire in diversi momenti
  - periodicamente, con una certa frequenza (*checkpoint*) per
    tutelarsi da eventuali avarie dell'UC (batterie scariche, danni,
    ...)
@@ -133,12 +104,14 @@ Il salvataggio dei dati concerne esclusivamente la versione
  - su segnale fornito dall'utente.
  
 Queste necessità suggeriscono l'introduzione di due modalità operative
-per la versione `lite`
  1. campionamento **continuo** dall'attivazione allo spegnimento dell'UC
  2. campionamento **on demand**, iniziato e terminato dall'utente a
     piacimento.
 
-#### Campionamento continuo
+La scelta della modalità di campionamento avviene con l'attributo
+`save_mode` di `Aggregator`.
+
+#### Campionamento continuo (`Aggregate.save_mode='continuous'`)
 Questa è la modalita "di default" in fase di testing di Mothics e
 dell'hardware, in particolar modo in assenza della pulsantiera di
 bordo per comunicare direttamente con l'UC. 
@@ -147,7 +120,7 @@ Si divide in due fasi:
  1. presa di checkpoint a un intervallo di tempo deciso dall'utente
  2. salvataggio finale al termine del ciclo di `Aggregator`.
 
-#### Campionamento on demand
+#### Campionamento on demand (`Aggregate.save_mode='on-demand'`)
 Questa è la modalità *finale*, prevista sull'implementazione di
 produzione dell'UC. 
 
@@ -173,26 +146,6 @@ Si mantiene l'interfaccia basata su `flask` e HTML
 jinja-templating. Le due versioni del software differiscono sia in
 funzionalità proposte, che in logica.
 
-### Versioni
-L'interfaccia `lite` presenta
- - **dashboard**: dati istantanei dei sensori, time-series delle grandezze
-   di interesse
- - **log**: visualizzazione in tempo reale dei log dei sensori e delle
-   routine di aggregazione e trattamento dati
- - **impostazioni**: gestione di tempi di campionamento e funzionalità
-   dei sensori
-
-L'interfaccia `full` richiede diversi adattamenti. Occorre modificare
- - **impostazioni**: il tuning dei sensori e delle comunicazioni non è
-   necessario, così come non è possibile variare la frequenza di
-   campionamento al di sotto di quella minima fornita dai dati
- - (...)
- 
-inoltre, occorre aggiungere
- - **selezione della track**: manipolazione delle track disponibili
- nel database, sincronizzazione con server remoto, selezione della
- track di interesse, eventuali opzioni di esportazione.
-
 ### Visualizzazione
 Quali dati devono essere visualizzati nelle due versioni del codice?
 (*...inserire note da lavagne delle riunioni di novembre/dicembre 2024*)
@@ -212,7 +165,12 @@ web con *Bokeh*. Sono disponibili due modalità principali:
  - *Bokeh applications*: applicazioni totalmente interattive, che si
    appoggiano a un server *Bokeh* in background; possono aggiornarsi
    dinamicamente.
- 
+
+Un'alternativa ben più efficace in termini di tempi di esecuzione e
+carico di lavoro per il processore è basata su JavaScript (*sigh*) e
+su pacchetti come `Plotly`, attualmente adoperati per mostrare i
+grafici in tempo reale su `WebApp`.
+
 Alcuni riferimenti:
  - [Interactive Data Visualization in Python With Bokeh](https://realpython.com/python-data-visualization-bokeh/)
  - [Embedding a bokeh app in

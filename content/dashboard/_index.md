@@ -1,14 +1,11 @@
 ---
 title: 'Dashboard'
-date: 2024-11-27
+date: 2025-11-13
 ---
 # Stato attuale 
-In attesa di acquisizione del materiale richiesto; prosegue lo
-sviluppo del software dell'unità centrale, dell'anemometro a
-ultrasuoni e del testing di GPS+IMU.
+Avviato il lavoro di ottimizzazione dell'Unità Centrale per incrementarne l'affidabilità e ridurne le dimensioni.
 
 # Progetti in corso
- - (UC) Unità centrale: software
- - (AN) Anemometro a ultrasuoni
- - (GI) Testing GPS+IMU (*Vacca Boia*)
+ - (UC1) Unità Centrale: studio di fattibilità sull'alimentazione a basso voltaggio
+ - (UC2) Unità Centrale: studio di fattibilità della connessione tra RasPi e sensori via I2C (o alternative).
 
