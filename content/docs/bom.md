@@ -20,7 +20,7 @@ reparto.
 | Arduino MKR GPS Shield | 1        |                    |      |
 | Arduino MKR IMU Shield | 1        |                    |      |
 | AM2302 DHT22           | 1        | Sensore di umidità |      |
-| Powerbank              |          | 5V, 2.1A, 10Ah     |      |
+| Powerbank              | 1        | 5V, 2.1A, 10Ah     |      |
 
 
 ### Bai - Flax Bandit (BFB)
@@ -32,7 +32,7 @@ reparto.
 | GY-NE06MV2             | 1        | GPS                |      |
 | BNOO08x 9-DoF          | 1        | IMU                |      |
 | AM2302 DHT22           | 1        | Sensore di umidità |      |
-| Powerbank              |          | 5V, 2.1A, 10Ah     |      |
+| Powerbank              | 1        | 5V, 2.1A, 10Ah     |      |
 
 ## Unità Remote
 ### Anemometro
