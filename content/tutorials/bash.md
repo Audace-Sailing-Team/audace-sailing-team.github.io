@@ -1,5 +1,5 @@
 ---
-title: 'Guida rapida a Bash`
+title: 'Guida rapida a Bash'
 date: 2025-11-19
 author: 'Iacopo Ricci, Zio GPT'
 weight: 1
