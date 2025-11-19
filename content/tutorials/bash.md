@@ -11,7 +11,7 @@ La guida... non è una guida in senso stretto, ma una collezione di presentazion
 # Introduzione alla shell di Linux (Bash)
 In ordine di difficoltà, questa è la guida più elementare. I contenuti della presentazione sono essenziali per qualunque membro del team interessato a lavorare con le piattaforme adoperate (`Mothics`, strumenti di sviluppo, analisi e prototipazione).
 
-Può essere scaricata [da qui](../../data/bash_basics.pdf).
+Può essere scaricata [da qui](https://github.com/Audace-Sailing-Team/didattica/blob/main/bash_basics.pdf).
 Le lezioni svolte sul tema sono avvenute il:
  - AA. 2025/2026: 19/11/2025
 
@@ -30,7 +30,7 @@ Gli argomenti discussi includono
 # Bash per il principiante talentuoso
 Qui iniziano a essere discussi concetti meno elementari, ma ugualmente importanti per lo sviluppo e l'interazione con le Unità Centrali e con `Mothics`. 
 
-Può essere scaricata [da qui](../../data/bash_basics.pdf).
+Può essere scaricata [da qui](https://github.com/Audace-Sailing-Team/didattica/blob/main/bash_intermediate.pdf).
 Le lezioni svolte sul tema sono avvenute il:
  - AA. 2025/2026: ...WIP...
 
