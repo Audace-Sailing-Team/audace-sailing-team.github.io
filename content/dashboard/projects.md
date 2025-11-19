@@ -1,7 +1,7 @@
 ---
 title: 'Progetti in corso'
 date: 2025-11-19
-weight: 3
+weight: 4
 ---
 
 Ogni progetto in corso richiede un luogo nel quale annotare idee, progetti, proposte e riflessioni. Chiunque prenda parte al processo di sviluppo di un progetto del reparto con qualcosa da dire è il benvenuto!
