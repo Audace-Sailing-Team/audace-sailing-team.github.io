@@ -27,6 +27,7 @@ date: 2025-11-13
 - [x] Implementare la lettura dell’angolo del vento relativo dall’AS5600
 - [ ] Primi test di comunicazione con l’unità centrale
 - [ ] Calibrazione effettiva con i vecchi dati di calibrazione
+- [ ] Aggiornare la pagina `Progetti in corso` con la sezione `Current state` dell'anemometro.
 
 # Progetti futuri
 ## Unità Centrale
