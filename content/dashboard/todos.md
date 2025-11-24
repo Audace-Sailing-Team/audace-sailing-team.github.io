@@ -19,6 +19,15 @@ date: 2025-11-13
  - [ ] Studiare `Communicator`, interfacce di comunicazione e scrivere `I2CInterface`
  - [ ] Studiare bus I2C
 
+## AU1: Produzione anemometro meccanico elettromagnetico.
+- [x] Testare e validare il primo codice
+- [x] Risolvere i problemi del primo codice
+- [x] Aggiungere i file .3mf della banderuola a `3mf_files`
+- [x] Aggiornare il sito web con le info presenti in questo documento
+- [x] Implementare la lettura dell’angolo del vento relativo dall’AS5600
+- [ ] Primi test di comunicazione con l’unità centrale
+- [ ] Calibrazione effettiva con i vecchi dati di calibrazione
+
 # Progetti futuri
 ## Unità Centrale
 ...WIP...
