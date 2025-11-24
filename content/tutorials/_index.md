@@ -35,3 +35,4 @@ Markdown, ...) più usati nel progetto.
 ## Altri
  - [Markdown Guide](https://www.markdownguide.org/): una guida
    interattiva al Markdown
+ - [RasPi pinout guide](https://pinout.xyz): il riferimento più comodo per il pinout del RasPi
