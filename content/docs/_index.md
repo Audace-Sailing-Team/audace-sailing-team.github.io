@@ -28,3 +28,7 @@ Attualmente, l'impegno del reparto è concentrato sulla revisione delle Unità C
   - **Margherita**
   - **Alessandro**
   - **Samu**
+
+## Gruppo MQTT: Report MQTT
+  - **Lisa**
+  - **Alessandro**

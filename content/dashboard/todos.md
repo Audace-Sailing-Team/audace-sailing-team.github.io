@@ -22,7 +22,7 @@ e software
  - [ ] Studiare bus I2C
  - [ ] Capire che informazioni danno i sensori in bus I2C
  - [x] Cercare librerie adatte per parsing dati I2C in Python
-
+ - [ ] Martina: Sviluppare un report dei progressi del progetto `UC2` (entro 3/12/25)
 
 ## AU1: Produzione anemometro meccanico elettromagnetico.
  - [x] Testare e validare il primo codice
@@ -32,7 +32,13 @@ e software
  - [x] Implementare la lettura dell’angolo del vento relativo dall’AS5600
  - [ ] Primi test di comunicazione con l’unità centrale
  - [ ] Calibrazione effettiva con i vecchi dati di calibrazione
- - [ ] Aggiornare la pagina `Progetti in corso` con la sezione `Current state` dell'anemometro.  
+ - [x] Aggiornare la pagina `Progetti in corso` con la sezione `Current state` dell'anemometro.  
+
+
+## MQTT: Studio su implementazione e latenza di MQTT.
+ - [ ] Creare "simulatore" di unità remota (server mqtt + unità remota ardino).
+ - [ ] Studio sulla latenza e frequenza massima di trasmissione dei dati.
+ - [ ] Ricerca sulla modifica del Q.O.S (Quality Of Service) e l'impatto sulla latenza.
 
 
 # Progetti futuri

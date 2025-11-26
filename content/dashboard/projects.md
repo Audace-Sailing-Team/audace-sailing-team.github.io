@@ -53,3 +53,13 @@ Il RasPi offre i pin
 Il parsing può essere effettuato sfruttando due librerie di Python
  - [`pynmea2`](https://github.com/Knio/pynmea2) per il parsing dei dati del GPS (protocollo NMEA 0183)
  - una libreria stile-`smbus` per il parsing dei dati degli altri sensori.
+
+# AU1: Anemometro
+
+### Obiettivo
+Realizzare un anemometro a coppette e banderuola affidabile che possa comunicare con l’unità centrale tramite [inserire protocollo].  
+Il design utilizza tecnologia a sensori ad effetto Hall per rilevare il movimento dei componenti mantenendo comunque la tenuta stagna.
+
+### Stato attuale  
+Il codice è stato progettato per riportare un campione dei giri al minuto delle coppette e l’angolo di vento relativo a ogni periodo di campionamento.  
+Il codice è stato testato e funziona.
