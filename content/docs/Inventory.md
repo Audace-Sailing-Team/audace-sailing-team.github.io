@@ -1,0 +1,29 @@
+---
+title: Inventory
+date: 2025-12-03
+weight: 4
+---
+
+La pagina contenente inventario e lista acquisti del reparto di Sensoristica di Audace Sailing Team.  
+
+<!--more-->
+
+# Inventario
+
+Work in progress....  
+---
+
+# Lista acquisti
+- [ ] ...
+
+### UC1: Alimentazione  
+- [ ] ...
+
+### UC2: RasPi e I2C  
+- [ ] ...
+
+### AU1: Anemometro  
+- [ ] ...
+
+### MQTT  
+- [ ] ... 
