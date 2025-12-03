@@ -63,3 +63,12 @@ Il design utilizza tecnologia a sensori ad effetto Hall per rilevare il moviment
 ### Stato attuale  
 Il codice è stato progettato per riportare un campione dei giri al minuto delle coppette e l’angolo di vento relativo a ogni periodo di campionamento.  
 Il codice è stato testato e funziona.
+
+# MQTT
+## Idee per migliorare la trasmissione
+- Inviare i dati grezzi dal sensore e non pacchetti o Json riduce il carico in ricezione;
+- Impostare la comunicazione in QoS = 0 (Quality Of Service);
+- Aumentare la frequenza di comunicazione a meno di 2 secondi (1s, 500 ms): l'aumento della frequenza di trasmissione aumenta il carico sulla rete e il rischio di congestione, si può arrivare a 200 ms come margine di sicurezza;
+- Diminuire la frequenza di Keep-alive (tempo in cui la comunicazione può rimanere inattiva prima che il broker chiuda il collegamento) può ridurre il traffico sulla rete e lasciare maggiori risorse alla trasmissione dati;
+- Evitare di aprire/chiudere la connessione ad ogni messaggio, ma utilizzare una sessione persistente;
+- Uso di MQTT v5, che supporta i topic alias, permettendo di non inviare ogni volta il nome completo del topic: meno byte, meno latenza.
