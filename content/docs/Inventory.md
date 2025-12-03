@@ -16,9 +16,10 @@ Work in progress....
 
 # Lista acquisti
 - [ ] Chiavetta per leggere microSD 
+- [ ] Spinotto caricabatterie con usbc per powerbank
 
 ### UC1: Alimentazione  
-- [ ] ...
+- [ ] Ricerca nuovo stabilizzatore/stepdown
 
 ### UC2: RasPi e I2C  
 - [ ] ...
