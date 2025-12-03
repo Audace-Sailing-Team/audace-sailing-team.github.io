@@ -8,13 +8,14 @@ La pagina contenente inventario e lista acquisti del reparto di Sensoristica di 
 
 <!--more-->
 
-# Inventario
+# Inventario  
 
 Work in progress....  
+
 ---
 
 # Lista acquisti
-- [ ] ...
+- [ ] Chiavetta per leggere microSD 
 
 ### UC1: Alimentazione  
 - [ ] ...
