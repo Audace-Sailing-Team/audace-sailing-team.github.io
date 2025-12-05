@@ -18,6 +18,7 @@ Work in progress....
 - [ ] Chiavetta per leggere microSD 
 - [ ] Spinotto caricabatterie con usbc per powerbank
 - [ ] Stagno per saldatore  
+- [ ] Terza mano per saldatura (seria)
 
 ### UC1: Alimentazione  
 - [ ] Ricerca nuovo stabilizzatore/stepdown
