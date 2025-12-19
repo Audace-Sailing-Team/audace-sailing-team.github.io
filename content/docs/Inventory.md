@@ -22,9 +22,10 @@ Work in progress....
 - [ ] 9,31€ stagnoooooooo https://www.rk-elettronica.it/prodotto/rotolo-filo-saldatura-sn60pb40-100g-diam-1-mm/  
 - [ ] 11,70€ cavo flat treccia 2 poli  https://www.rk-elettronica.it/prodotto/cavo-a-nastro-flat-cable-colorato-12-coppie-passo-127mm/  
 - [ ] 4,05€ cavo 40poli flat https://www.rk-elettronica.it/prodotto/cavo-a-nastro-flat-cable-colorato-40-poli-passo-127mm/  
-- [ ] !! alimentatore da banco (identico a quello futura e stesso prezzo di 90€) https://www.rk-elettronica.it/prodotto/alimentatore-da-laboratorio-0-30v-0-5a/  
+- [ ] !! alimentatore da banco (identico a quello futura e stesso prezzo di 90€) https://www.rk-elettronica.it/prodotto/alimentatore-da-laboratorio-0-30v-0-5a/
+- [ ] 301€ oscilloscopio digitale da banco (se non si può su futura) https://www.rk-elettronica.it/prodotto/oscilloscopio-digitale-lcd-100mhz-digitale-hantek-dso2c10/
   
-Totale: 25,6€
+Totale: 326,6€
 
 
 ## Futura Elettronica  
@@ -50,7 +51,8 @@ Totale: 93,4€
 - [ ] prova a vedere anche teseo V e VI ma sembra over the top  
 - [ ] STEVAL-L6982NDR https://www.st.com/en/evaluation-tools/steval-l6982ndr.html?ecmp=tt9470_gl_link_feb2019&rt=um&id=UM2935  
 - [ ] !!! imu!!!!!
-- [ ] !! qualche stm32  
+- [ ] !! qualche nucleo stm32
+- [ ] [modulo lora (compatibile con arduino UNO o schede nucleo-64)](https://www.st.com/en/evaluation-tools/nucleo-wl55jc.html)  
 - [ ] !! bms nuovo che ci hanno detto loro
 
 Totale: speriamo 0€!!
