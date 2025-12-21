@@ -25,8 +25,7 @@ Work in progress....
 - [ ] !! alimentatore da banco (identico a quello futura e stesso prezzo di 90€) https://www.rk-elettronica.it/prodotto/alimentatore-da-laboratorio-0-30v-0-5a/
 - [ ] 301€ oscilloscopio digitale da banco (se non si può su futura) https://www.rk-elettronica.it/prodotto/oscilloscopio-digitale-lcd-100mhz-digitale-hantek-dso2c10/
   
-Totale: 326,6€
-
+Totale: 326,6€  
 
 ## Futura Elettronica  
 - [ ] 18,00€ Caricabatterie 7,4v https://futuranet.it/prodotto/caricabatterie-li-ion-o-lipo-74-v/  (ka-ching)  
@@ -42,8 +41,18 @@ Totale: 326,6€
 - [ ] !! Oscilloscopio buji (270€) https://futuranet.it/prodotto/analizzatore-elettronico-3-in-1/
 - [ ] !! Alimentatore da banco (circa 90€) https://futuranet.it/prodotto/alimentatore-da-laboratorio-0-30-v-0-5-a/ o https://futuranet.it/prodotto/alimentatore-dc-regolabile-0-30-v-0-5-a-ad-alte-prestazioni/  
   
-Totale: 93,4€
+Totale: 93,4€  
 
+## RS components
+- [ ] 61,7-65,7€ GPS (UART)  
+	- [ ] 10,38€ Antenna gps SMA IP67 https://it.rs-online.com/web/p/antenne-gps/1372773  
+	- [ ] 11,95 adattatore ufl(f) to sma(f) https://it.rs-online.com/web/p/cavi-coassiali/7942894  
+	- [ ] 43,37€ adafruit Raspi UART GPS HAT https://it.rs-online.com/web/p/raspberry-pi-hat-e-componenti-aggiuntivi/1245481 
+	oppure  
+	- [ ] 39,37€ adafruit ultimate gps breakout https://it.rs-online.com/web/p/moduli-gnss-e-gps/9054630	
+- [ ] 15,94€ IMU 9dof i2c https://it.rs-online.com/web/p/strumenti-di-sviluppo-per-sensori/2167491  
+
+Totale: 77,64-81,64€  
 
 ## ST microelectronics  
 - [ ] Teseo-LIV4F evaluation board https://www.st.com/en/evaluation-tools/evb-liv4f.html  
@@ -55,4 +64,4 @@ Totale: 93,4€
 - [ ] [modulo lora (compatibile con arduino UNO o schede nucleo-64)](https://www.st.com/en/evaluation-tools/nucleo-wl55jc.html)  
 - [ ] !! bms nuovo che ci hanno detto loro
 
-Totale: speriamo 0€!!
+Totale: speriamo 0€!!  
