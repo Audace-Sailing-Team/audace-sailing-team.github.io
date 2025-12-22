@@ -72,3 +72,7 @@ Il codice è stato testato e funziona.
 - Diminuire la frequenza di Keep-alive (tempo in cui la comunicazione può rimanere inattiva prima che il broker chiuda il collegamento) può ridurre il traffico sulla rete e lasciare maggiori risorse alla trasmissione dati;
 - Evitare di aprire/chiudere la connessione ad ogni messaggio, ma utilizzare una sessione persistente;
 - Uso di MQTT v5, che supporta i topic alias, permettendo di non inviare ogni volta il nome completo del topic: meno byte, meno latenza.
+
+
+## Quality of Service
+La libreria PubSubClient, implementa esclusivamente QoS 0 per la comunicazione MQTT, e non supporta QoS 1 o QoS 2.  
