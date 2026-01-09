@@ -63,8 +63,10 @@ Totale: 181,58-188,45€ (IVA ESCLUSA!) (circa 240€ iva inclusa)
 - [ ] prova a vedere anche teseo V e VI ma sembra over the top  
 - [ ] STEVAL-L6982NDR https://www.st.com/en/evaluation-tools/steval-l6982ndr.html?ecmp=tt9470_gl_link_feb2019&rt=um&id=UM2935  
 - [ ] !!! imu!!!!!
-- [ ] qualche nucleo stm32
-- [ ] modulo lora (compatibile con arduino UNO o schede nucleo-64)](https://www.st.com/en/evaluation-tools/nucleo-wl55jc.html)  
+- [ ] [nucleo32-stm32G431kb](https://www.st.com/en/evaluation-tools/nucleo-g431kb.html#st_all-features_sec-nav-tab)
+- [ ] [nucleo64-stm32f446re](https://www.st.com/en/evaluation-tools/nucleo-f446re.html#recommended-for-you)
+- [ ] [modulo lora](https://www.st.com/en/evaluation-tools/nucleo-wl55jc.html) (compatibile con arduino UNO o schede nucleo-64)
+- [ ] ?[nucleo144-stm32h753zi](https://www.st.com/en/evaluation-tools/nucleo-h753zi.html) (molto potente, molto difficile da portare su PCB, ha 144pin!)
 - [ ] !! bms nuovo che ci hanno detto loro
 
 Totale: speriamo 0€!!  
