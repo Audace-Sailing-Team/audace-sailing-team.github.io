@@ -13,7 +13,37 @@ La pagina contenente inventario e lista acquisti del reparto di Sensoristica di 
 Work in progress....  
 
 ---
+# Lista definitiva  
 
+## RS COMPONENTS  
+  
+| Prodotto | N° pezzi | Prezzo (iva esclusa) | Link |
+| :---: | :---: | :---: | :---: |
+| Antenna gps SMA IP67 | 1 | € 10.38 | https://it.rs-online.com/web/p/antenne-gps/1372773 |
+| adattatore ufl(f) to sma(f) | 1 | € 11.95 | https://it.rs-online.com/web/p/cavi-coassiali/7942894 |
+| adafruit ultimate gps breakout | 1 | € 39.37 | https://it.rs-online.com/web/p/moduli-gnss-e-gps/9054630 |
+| IMU 9dof i2c | 2 | € 15.94 | https://it.rs-online.com/web/p/strumenti-di-sviluppo-per-sensori/2167491 |
+| Raspberry Pi 4 4GB | 1 | € 64.22 | https://it.rs-online.com/web/p/raspberry-pi/1822096 |
+| Micro SD Kingston, 64 GB | 2 | € 9.86 | https://it.rs-online.com/web/p/schede-sd/1958342 |
+| alimentatore USB C 5V 3A | 1 | € 4.83 | https://it.rs-online.com/web/p/raspberry-pi-alimentatori/2023763 |
+| Lettore di schede micro SD | 1 | € 15.17 | https://it.rs-online.com/web/p/lettori-schede/7873290 |
+| Terza mano saldatura | 1 | € 42.62 | https://it.rs-online.com/web/p/accessori-per-saldatura/0316054 |
+| **Totale RS COMPONENTS (iva esclusa)** | | **€ 240.14** | |
+| **Totale RS COMPONENTS (iva inclusa)** | | **€ 292,97** | |
+  
+## RK ELETTRONICA  
+
+| Prodotto | N° pezzi | Prezzo (iva esclusa) | Link |
+| :---: | :---: | :---: | :---: |
+| stagnoooooooo | 1 | € 9.31 | https://www.rk-elettronica.it/prodotto/rotolo-filo-saldatura-sn60pb40-100g-diam-1-mm/ |
+| cavo flat treccia 2 poli | 1 | € 11.70 | https://www.rk-elettronica.it/prodotto/cavo-a-nastro-flat-cable-colorato-12-coppie-passo-127mm/ |
+| cavo 40poli flat | 1 | € 4.05 | https://www.rk-elettronica.it/prodotto/cavo-a-nastro-flat-cable-colorato-40-poli-passo-127mm/ |
+| alimentatore da banco (identico futura) (!) (?) | 1 | € 90.00 | https://www.rk-elettronica.it/prodotto/alimentatore-da-laboratorio-0-30v-0-5a/ |
+| oscilloscopio digitale da banco (se non si può su futura) (?) | 0 | € 301.00 | https://www.rk-elettronica.it/prodotto/oscilloscopio-digitale-lcd-100mhz-digitale-hantek-dso2c10/ |
+| **Totale RK ELETTRONICA (iva esclusa)** | | **€ 115.06** | |
+| **Totale RK ELETTRONICA (iva inclusa)** | | **€ 140.37** | |
+  
+---
 # Lista acquisti
 
 ## Radiokalika
@@ -25,7 +55,8 @@ Work in progress....
 - [ ] (!) (?) 90€ alimentatore da banco (identico a quello futura e stesso prezzo) https://www.rk-elettronica.it/prodotto/alimentatore-da-laboratorio-0-30v-0-5a/
 - [ ] (?) 301€ oscilloscopio digitale da banco (se non si può su futura) https://www.rk-elettronica.it/prodotto/oscilloscopio-digitale-lcd-100mhz-digitale-hantek-dso2c10/
   
-Totale: 326,6€  
+Totale IVA esclusa: €115,06  
+Totale IVA inclusa: €140,37
 
 ## Futura Elettronica  
 - [ ] 18,00€ Caricabatterie 7,4v https://futuranet.it/prodotto/caricabatterie-li-ion-o-lipo-74-v/  (ka-ching)  
@@ -47,15 +78,15 @@ Totale: 93,4€
 	- [ ] 10,38€ Antenna gps SMA IP67 https://it.rs-online.com/web/p/antenne-gps/1372773  
 	- [ ] 11,95 adattatore ufl(f) to sma(f) https://it.rs-online.com/web/p/cavi-coassiali/7942894  
 	- [ ] 39,37€ adafruit ultimate gps breakout https://it.rs-online.com/web/p/moduli-gnss-e-gps/9054630	
-- [ ] 15,94€ IMU 9dof i2c https://it.rs-online.com/web/p/strumenti-di-sviluppo-per-sensori/2167491  
-- [ ] 64,22-75,09€ RasberryPi   
-	- [ ] 64,22€ Raspberry Pi 4 4GB  https://it.rs-online.com/web/p/raspberry-pi/1822096   
-	- [ ] 75,09€ Raspberry Pi 5 4GB  https://it.rs-online.com/web/p/raspberry-pi/0219253  
-- [ ] 2 x 9,86€ Micro SD Kingston, 64 GB https://it.rs-online.com/web/p/schede-sd/1958342  
+- [ ] 2x 15,94€ IMU 9dof i2c https://it.rs-online.com/web/p/strumenti-di-sviluppo-per-sensori/2167491  
+- [ ] 64,22€ Raspberry Pi 4 4GB  https://it.rs-online.com/web/p/raspberry-pi/1822096   
+- [ ] 2x 9,86€ Micro SD Kingston, 64 GB https://it.rs-online.com/web/p/schede-sd/1958342  
 - [ ] 4,83€ alimentatore USB C 5V 3A https://it.rs-online.com/web/p/raspberry-pi-alimentatori/2023763  
 - [ ] (Futura €↓) 15,17€ Lettore di schede micro SD https://it.rs-online.com/web/p/lettori-schede/7873290  
+- [ ] 42,62€ Terza mano saldatura https://it.rs-online.com/web/p/accessori-per-saldatura/0316054
 
-Totale: 181,58-188,45€ (IVA ESCLUSA!) (circa 240€ iva inclusa)  
+Totale IVA esclusa: € 240,14  
+Totale IVA inclusa: € 292,97  
 
 ## ST microelectronics  
 - [ ] Teseo-LIV4F evaluation board https://www.st.com/en/evaluation-tools/evb-liv4f.html  
