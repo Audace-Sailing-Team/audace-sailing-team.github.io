@@ -18,10 +18,10 @@ Work in progress....
 ## Radiokalika
 - [ ] !! altri mosfet (?)
 - [ ] !! Circuiti di alimentazione
-- [ ] 9,31€ stagnoooooooo https://www.rk-elettronica.it/prodotto/rotolo-filo-saldatura-sn60pb40-100g-diam-1-mm/  
-- [ ] 11,70€ cavo flat treccia 2 poli  https://www.rk-elettronica.it/prodotto/cavo-a-nastro-flat-cable-colorato-12-coppie-passo-127mm/  
-- [ ] 4,05€ cavo 40poli flat https://www.rk-elettronica.it/prodotto/cavo-a-nastro-flat-cable-colorato-40-poli-passo-127mm/  
-- [ ] (!) (?) 90€ alimentatore da banco (identico a quello futura e stesso prezzo) https://www.rk-elettronica.it/prodotto/alimentatore-da-laboratorio-0-30v-0-5a/
+- [x] 9,31€ stagnoooooooo https://www.rk-elettronica.it/prodotto/rotolo-filo-saldatura-sn60pb40-100g-diam-1-mm/  
+- [x] 11,70€ cavo flat treccia 2 poli  https://www.rk-elettronica.it/prodotto/cavo-a-nastro-flat-cable-colorato-12-coppie-passo-127mm/  
+- [x] 4,05€ cavo 40poli flat https://www.rk-elettronica.it/prodotto/cavo-a-nastro-flat-cable-colorato-40-poli-passo-127mm/  
+- [x] (!) (?) 90€ alimentatore da banco (identico a quello futura e stesso prezzo) https://www.rk-elettronica.it/prodotto/alimentatore-da-laboratorio-0-30v-0-5a/
 - [ ] (?) 301€ oscilloscopio digitale da banco (se non si può su futura) https://www.rk-elettronica.it/prodotto/oscilloscopio-digitale-lcd-100mhz-digitale-hantek-dso2c10/
   
 Totale IVA esclusa: €115,06  
@@ -43,16 +43,19 @@ Totale IVA inclusa: €140,37
 Totale: 93,4€  
 
 ## RS components
-- [ ] 61,7€ GPS (UART)  
-	- [ ] 10,38€ Antenna gps SMA IP67 https://it.rs-online.com/web/p/antenne-gps/1372773  
-	- [ ] 11,95 adattatore ufl(f) to sma(f) https://it.rs-online.com/web/p/cavi-coassiali/7942894  
-	- [ ] 39,37€ adafruit ultimate gps breakout https://it.rs-online.com/web/p/moduli-gnss-e-gps/9054630	
-- [ ] 2x 15,94€ IMU 9dof i2c https://it.rs-online.com/web/p/strumenti-di-sviluppo-per-sensori/2167491  
-- [ ] 64,22€ Raspberry Pi 4 4GB  https://it.rs-online.com/web/p/raspberry-pi/1822096   
-- [ ] 2x 9,86€ Micro SD Kingston, 64 GB https://it.rs-online.com/web/p/schede-sd/1958342  
-- [ ] 4,83€ alimentatore USB C 5V 3A https://it.rs-online.com/web/p/raspberry-pi-alimentatori/2023763  
-- [ ] (Futura €↓) 15,17€ Lettore di schede micro SD https://it.rs-online.com/web/p/lettori-schede/7873290  
-- [ ] 42,62€ Terza mano saldatura https://it.rs-online.com/web/p/accessori-per-saldatura/0316054
+- [x] 61,7€ GPS (UART)  
+	- [x] 10,38€ Antenna gps SMA IP67 https://it.rs-online.com/web/p/antenne-gps/1372773  
+	- [x] 11,95 adattatore ufl(f) to sma(f) https://it.rs-online.com/web/p/cavi-coassiali/7942894  
+	- [x] 39,37€ adafruit ultimate gps breakout https://it.rs-online.com/web/p/moduli-gnss-e-gps/9054630	
+- [x] 2x 15,94€ IMU 9dof i2c https://it.rs-online.com/web/p/strumenti-di-sviluppo-per-sensori/2167491  
+- [x] 64,22€ Raspberry Pi 4 4GB  https://it.rs-online.com/web/p/raspberry-pi/1822096   
+- [x] 2x 9,86€ Micro SD Kingston, 64 GB https://it.rs-online.com/web/p/schede-sd/1958342  
+- [x] 4,83€ alimentatore USB C 5V 3A https://it.rs-online.com/web/p/raspberry-pi-alimentatori/2023763  
+- [x] (Futura €↓) 15,17€ Lettore di schede micro SD https://it.rs-online.com/web/p/lettori-schede/7873290  
+- [x] 42,62€ Terza mano saldatura https://it.rs-online.com/web/p/accessori-per-saldatura/0316054
+- [ ] 2x1,47€ Jumper M-M https://it.rs-online.com/web/p/ponticelli-per-breadboard/2048239
+- [ ] 2x3,24€ Jumper M-F https://it.rs-online.com/web/p/ponticelli-per-breadboard/2048243
+- [ ] 2x1,52€ Jumper F-F https://it.rs-online.com/web/p/stem-componenti-elettronici/0310923
 
 Totale IVA esclusa: € 240,14  
 Totale IVA inclusa: € 292,97  
