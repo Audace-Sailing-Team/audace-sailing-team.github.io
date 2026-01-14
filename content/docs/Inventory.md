@@ -53,9 +53,9 @@ Totale: 93,4€
 - [x] 4,83€ alimentatore USB C 5V 3A https://it.rs-online.com/web/p/raspberry-pi-alimentatori/2023763  
 - [x] (Futura €↓) 15,17€ Lettore di schede micro SD https://it.rs-online.com/web/p/lettori-schede/7873290  
 - [x] 42,62€ Terza mano saldatura https://it.rs-online.com/web/p/accessori-per-saldatura/0316054
-- [ ] 2x1,47€ Jumper M-M https://it.rs-online.com/web/p/ponticelli-per-breadboard/2048239
-- [ ] 2x3,24€ Jumper M-F https://it.rs-online.com/web/p/ponticelli-per-breadboard/2048243
-- [ ] 2x1,52€ Jumper F-F https://it.rs-online.com/web/p/stem-componenti-elettronici/0310923
+- [x] 2x1,47€ Jumper M-M https://it.rs-online.com/web/p/ponticelli-per-breadboard/2048239
+- [x] 2x3,24€ Jumper M-F https://it.rs-online.com/web/p/ponticelli-per-breadboard/2048243
+- [x] 2x1,52€ Jumper F-F https://it.rs-online.com/web/p/stem-componenti-elettronici/0310923
 
 Totale IVA esclusa: € 240,14  
 Totale IVA inclusa: € 292,97  
