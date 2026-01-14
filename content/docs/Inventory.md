@@ -21,7 +21,7 @@ Work in progress....
 - [x] 9,31€ stagnoooooooo https://www.rk-elettronica.it/prodotto/rotolo-filo-saldatura-sn60pb40-100g-diam-1-mm/  
 - [x] 11,70€ cavo flat treccia 2 poli  https://www.rk-elettronica.it/prodotto/cavo-a-nastro-flat-cable-colorato-12-coppie-passo-127mm/  
 - [x] 4,05€ cavo 40poli flat https://www.rk-elettronica.it/prodotto/cavo-a-nastro-flat-cable-colorato-40-poli-passo-127mm/  
-- [x] (!) (?) 90€ alimentatore da banco (identico a quello futura e stesso prezzo) https://www.rk-elettronica.it/prodotto/alimentatore-da-laboratorio-0-30v-0-5a/
+- [ ] (!) (?) 90€ alimentatore da banco (identico a quello futura e stesso prezzo) https://www.rk-elettronica.it/prodotto/alimentatore-da-laboratorio-0-30v-0-5a/
 - [ ] (?) 301€ oscilloscopio digitale da banco (se non si può su futura) https://www.rk-elettronica.it/prodotto/oscilloscopio-digitale-lcd-100mhz-digitale-hantek-dso2c10/
   
 Totale IVA esclusa: €115,06  
