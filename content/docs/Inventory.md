@@ -28,14 +28,27 @@ Totale IVA esclusa: €115,06
 Totale IVA inclusa: €140,37
 
 ## Futura Elettronica  
+- [ ] €95,00 Raspberry Pi 4 4GB https://futuranet.it/prodotto/raspberry-pi-4-tipo-b-con-4gb-di-memoria/
+- [ ] €109,00 hat 4G/GNSS https://futuranet.it/prodotto/shield-gsm-gps-gprs-per-raspberry-pi-sim7600e-h/
+- [ ] €39,90 hat GSM/GNSS https://futuranet.it/prodotto/board-gsm-gprs-gnss-per-raspberry-pi/
+- [ ] €17,50 GPS VK2828 https://futuranet.it/prodotto/modulo-gps-vk2828-con-antenna/
+- [ ] €12,80 GPS ATGM336H https://futuranet.it/prodotto/modulo-gps-atgm336h-con-antenna-attiva/
+- [ ] €21,00 NEO-6M https://futuranet.it/prodotto/ublox-neo-6m-per-controller-di-volo-apm/
+- [ ] €14,00 Antenna GPS U.FL https://futuranet.it/prodotto/antenna-gps-con-attacco-u-fl/
+- [ ] €3,50 40 jumper M-M https://futuranet.it/prodotto/40-jumper-colorati-maschio-maschio/	
+- [ ] €3,50 40 jumper F-F https://futuranet.it/prodotto/40-jumper-colorati-femmina-femmina/
+- [ ] €3,50 40 jumper M-F https://futuranet.it/prodotto/40-jumper-colorati-maschio-femmina/
+- [ ] 2 x €2,50 punta saldatore 1,6mm https://futuranet.it/prodotto/punta-16-mm-per-vtssc10n-vtssc30n-vtssc40n/
+- [ ] 2 x €2,50 punta saldatore 1mm https://futuranet.it/prodotto/punta-1-mm-per-vtssc10n-vtssc30n-vtssc40n/
+- [ ] 2 x €14,90 MicroSD 64GB https://futuranet.it/prodotto/micro-sd-card-hc-64gb-classe-10-adattatore/
+- [ ] €49,00 Webinar su LoRa https://futuranet.it/prodotto/webinar-lora-lorawan/
 - [ ] 18,00€ Caricabatterie 7,4v https://futuranet.it/prodotto/caricabatterie-li-ion-o-lipo-74-v/  (ka-ching)  
 - [ ] 8,50€ Shield power bank 18650 2s https://futuranet.it/prodotto/dual-18650-lithium-charger-booster/
 - [ ] (RS) 7,00€ Alimentatore Switching USB https://futuranet.it/prodotto/alimentatore-switching-con-uscita-usb-5v-3a/   
 - [ ] (RS €↑) 22,50€ Terza mano  https://futuranet.it/prodotto/supporto-per-saldatura-a-5-bracci-flessibili-con-clip-a-coccodrillo-morsetto-e-torcia/  
 - [ ] (RS €↑) 5,90€ Lettore scheda SD https://futuranet.it/prodotto/lettore-di-memorie-all-in-one-usb-2-0/ 
-- [ ] (RS) 22,50€ Imu bello 6 assi + mag (i2c) https://futuranet.it/prodotto/accelerometro-giroscopio-magnetometro-9-assi/  
+- [ ] (RS) 2 x 22,50€ Imu bello 6 assi + mag (i2c) https://futuranet.it/prodotto/accelerometro-giroscopio-magnetometro-9-assi/  
 - [ ] (RS) 9,00€ Imu 6 assi pacco (i2c) https://futuranet.it/prodotto/accelerometro-3-assi-giroscopio-a-3-assi/
-- [ ] (RS) i gps su futura sono *tutti* UART (https://futuranet.it/prodotto/modulo-gps-vk2828-con-antenna/, https://futuranet.it/prodotto/modulo-gps-atgm336h-con-antenna-attiva/)  
 - [ ] (?) Oscilloscopio pacco (79€) https://futuranet.it/prodotto/mini-oscilloscopio-palmare-200-khz/
 - [ ] (?) Oscilloscopio buji (270€) https://futuranet.it/prodotto/analizzatore-elettronico-3-in-1/
 - [ ] (RK) (?) Alimentatore da banco (circa 90€) https://futuranet.it/prodotto/alimentatore-da-laboratorio-0-30-v-0-5-a/ o https://futuranet.it/prodotto/alimentatore-dc-regolabile-0-30-v-0-5-a-ad-alte-prestazioni/  
