@@ -25,54 +25,44 @@ Work in progress....
 - [ ] (?) 301€ oscilloscopio digitale da banco (se non si può su futura) https://www.rk-elettronica.it/prodotto/oscilloscopio-digitale-lcd-100mhz-digitale-hantek-dso2c10/
   
 Totale IVA esclusa: €115,06  
-Totale IVA inclusa: €140,37
+Totale IVA inclusa: €140,37  
 
 ## Futura Elettronica  
-- [ ] €95,00 Raspberry Pi 4 4GB https://futuranet.it/prodotto/raspberry-pi-4-tipo-b-con-4gb-di-memoria/
 - [ ] €109,00 hat 4G/GNSS https://futuranet.it/prodotto/shield-gsm-gps-gprs-per-raspberry-pi-sim7600e-h/
-- [ ] €39,90 hat GSM/GNSS https://futuranet.it/prodotto/board-gsm-gprs-gnss-per-raspberry-pi/
-- [ ] €17,50 GPS VK2828 https://futuranet.it/prodotto/modulo-gps-vk2828-con-antenna/
-- [ ] €12,80 GPS ATGM336H https://futuranet.it/prodotto/modulo-gps-atgm336h-con-antenna-attiva/
-- [ ] €21,00 NEO-6M https://futuranet.it/prodotto/ublox-neo-6m-per-controller-di-volo-apm/
+- [ ] (NO) €39,90 hat GSM/GNSS https://futuranet.it/prodotto/board-gsm-gprs-gnss-per-raspberry-pi/
+- [ ] (?) €17,50 GPS VK2828 https://futuranet.it/prodotto/modulo-gps-vk2828-con-antenna/
+- [ ] (?) €12,80 GPS ATGM336H https://futuranet.it/prodotto/modulo-gps-atgm336h-con-antenna-attiva/
 - [ ] €14,00 Antenna GPS U.FL https://futuranet.it/prodotto/antenna-gps-con-attacco-u-fl/
-- [ ] €3,50 40 jumper M-M https://futuranet.it/prodotto/40-jumper-colorati-maschio-maschio/	
-- [ ] €3,50 40 jumper F-F https://futuranet.it/prodotto/40-jumper-colorati-femmina-femmina/
-- [ ] €3,50 40 jumper M-F https://futuranet.it/prodotto/40-jumper-colorati-maschio-femmina/
+- [ ] €12,00 Antenna GPS con attacco SMA https://futuranet.it/prodotto/antenna-gps-con-attacco-sma/
+- [ ] (NO) €3,50 40 jumper M-M https://futuranet.it/prodotto/40-jumper-colorati-maschio-maschio/	
+- [ ] (NO) €3,50 40 jumper F-F https://futuranet.it/prodotto/40-jumper-colorati-femmina-femmina/
+- [ ] (NO) €3,50 40 jumper M-F https://futuranet.it/prodotto/40-jumper-colorati-maschio-femmina/
 - [ ] 2 x €2,50 punta saldatore 1,6mm https://futuranet.it/prodotto/punta-16-mm-per-vtssc10n-vtssc30n-vtssc40n/
 - [ ] 2 x €2,50 punta saldatore 1mm https://futuranet.it/prodotto/punta-1-mm-per-vtssc10n-vtssc30n-vtssc40n/
-- [ ] 2 x €14,90 MicroSD 64GB https://futuranet.it/prodotto/micro-sd-card-hc-64gb-classe-10-adattatore/
-- [ ] €49,00 Webinar su LoRa https://futuranet.it/prodotto/webinar-lora-lorawan/
-- [ ] 18,00€ Caricabatterie 7,4v https://futuranet.it/prodotto/caricabatterie-li-ion-o-lipo-74-v/  (ka-ching)  
+- [ ] (RS) 2 x €14,90 MicroSD 64GB https://futuranet.it/prodotto/micro-sd-card-hc-64gb-classe-10-adattatore/
+- [ ] (NO) €49,00 Webinar su LoRa https://futuranet.it/prodotto/webinar-lora-lorawan/
+- [ ] (NO) 18,00€ Caricabatterie 7,4v https://futuranet.it/prodotto/caricabatterie-li-ion-o-lipo-74-v/  (ka-ching)  
+- [ ] 2 x €29 Torpedo2 – Switching universale 3A https://futuranet.it/prodotto/torpedo2-switching-universale-3a/
+- [ ] (??) €16 Torpedo – Switching universale https://futuranet.it/prodotto/torpedo-switching-universale/
+- [ ] (?) 4 x €1,50 Portabatteria con fili per 2 pile tipo 18650 https://futuranet.it/prodotto/portabatteria-con-fili-per-2-pile-tipo-18650/
+- [ ] (?) €27,90 Batteria ricaricabile ai polimeri di litio 6 A https://futuranet.it/prodotto/batteria-ricaricabile-ai-polimeri-di-litio-6-a/
+- [ ] (?) 2 x €17,90 Batteria ai polimeri di litio 3,7V 5000 mAh – passo 2,54mm https://futuranet.it/prodotto/batteria-ai-polimeri-di-litio-37v-5000-mah-254-mm/
 - [ ] 8,50€ Shield power bank 18650 2s https://futuranet.it/prodotto/dual-18650-lithium-charger-booster/
+- [ ] (!!!) capisci quali connettori jst usare per le batterie!!!
+- [ ] €7,00 Box 320 connettori 2,54 mm JST (2-3-4 poli,comodi per tutto) https://futuranet.it/prodotto/box-320-connettori-254-mm-jst/
 - [ ] (RS) 7,00€ Alimentatore Switching USB https://futuranet.it/prodotto/alimentatore-switching-con-uscita-usb-5v-3a/   
-- [ ] (RS €↑) 22,50€ Terza mano  https://futuranet.it/prodotto/supporto-per-saldatura-a-5-bracci-flessibili-con-clip-a-coccodrillo-morsetto-e-torcia/  
+- [ ] 22,50€ Terza mano  https://futuranet.it/prodotto/supporto-per-saldatura-a-5-bracci-flessibili-con-clip-a-coccodrillo-morsetto-e-torcia/  
+- [ ] (?) €11,00 Servo motore 13kg/cm ingranaggi metallo 180° https://futuranet.it/prodotto/servo-analogico-13-kgcm-016-s-55-g-ingranaggi-in-metallo/
 - [ ] (RS €↑) 5,90€ Lettore scheda SD https://futuranet.it/prodotto/lettore-di-memorie-all-in-one-usb-2-0/ 
 - [ ] (RS) 2 x 22,50€ Imu bello 6 assi + mag (i2c) https://futuranet.it/prodotto/accelerometro-giroscopio-magnetometro-9-assi/  
 - [ ] (RS) 9,00€ Imu 6 assi pacco (i2c) https://futuranet.it/prodotto/accelerometro-3-assi-giroscopio-a-3-assi/
-- [ ] (?) Oscilloscopio pacco (79€) https://futuranet.it/prodotto/mini-oscilloscopio-palmare-200-khz/
-- [ ] (?) Oscilloscopio buji (270€) https://futuranet.it/prodotto/analizzatore-elettronico-3-in-1/
+- [ ] (NO) Oscilloscopio pacco (79€) https://futuranet.it/prodotto/mini-oscilloscopio-palmare-200-khz/
+- [ ] (NO) Oscilloscopio buji (270€) https://futuranet.it/prodotto/analizzatore-elettronico-3-in-1/
 - [ ] (RK) (?) Alimentatore da banco (circa 90€) https://futuranet.it/prodotto/alimentatore-da-laboratorio-0-30-v-0-5-a/ o https://futuranet.it/prodotto/alimentatore-dc-regolabile-0-30-v-0-5-a-ad-alte-prestazioni/  
+
+Totale (--)esclusi: €241,00 (IVA incl.)  
+Totale (?)inclusi: €368,00 (IVA incl.)  
   
-Totale: 93,4€  
-
-## RS components
-- [x] 61,7€ GPS (UART)  
-	- [x] 10,38€ Antenna gps SMA IP67 https://it.rs-online.com/web/p/antenne-gps/1372773  
-	- [x] 11,95 adattatore ufl(f) to sma(f) https://it.rs-online.com/web/p/cavi-coassiali/7942894  
-	- [x] 39,37€ adafruit ultimate gps breakout https://it.rs-online.com/web/p/moduli-gnss-e-gps/9054630	
-- [x] 2x 15,94€ IMU 9dof i2c https://it.rs-online.com/web/p/strumenti-di-sviluppo-per-sensori/2167491  
-- [x] 64,22€ Raspberry Pi 4 4GB  https://it.rs-online.com/web/p/raspberry-pi/1822096   
-- [x] 2x 9,86€ Micro SD Kingston, 64 GB https://it.rs-online.com/web/p/schede-sd/1958342  
-- [x] 4,83€ alimentatore USB C 5V 3A https://it.rs-online.com/web/p/raspberry-pi-alimentatori/2023763  
-- [x] (Futura €↓) 15,17€ Lettore di schede micro SD https://it.rs-online.com/web/p/lettori-schede/7873290  
-- [x] 42,62€ Terza mano saldatura https://it.rs-online.com/web/p/accessori-per-saldatura/0316054
-- [x] 2x1,47€ Jumper M-M https://it.rs-online.com/web/p/ponticelli-per-breadboard/2048239
-- [x] 2x3,24€ Jumper M-F https://it.rs-online.com/web/p/ponticelli-per-breadboard/2048243
-- [x] 2x1,52€ Jumper F-F https://it.rs-online.com/web/p/stem-componenti-elettronici/0310923
-
-Totale IVA esclusa: € 240,14  
-Totale IVA inclusa: € 292,97  
-
 ## ST microelectronics  
 - [ ] Teseo-LIV4F evaluation board https://www.st.com/en/evaluation-tools/evb-liv4f.html  
 - [ ] gps + inemo (forse compatibile anche con raspi)(sarebbe troppo figo) https://www.st.com/resource/en/data_brief/x-stm32mp-gnss2.pdf  
