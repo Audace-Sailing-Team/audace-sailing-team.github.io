@@ -61,8 +61,9 @@ Realizzare un anemometro a coppette e banderuola affidabile che possa comunicare
 Il design utilizza tecnologia a sensori ad effetto Hall per rilevare il movimento dei componenti mantenendo comunque la tenuta stagna.
 
 ### Stato attuale  
-Il codice è stato progettato per riportare un campione dei giri al minuto delle coppette e l’angolo di vento relativo a ogni periodo di campionamento.  
-Il codice è stato testato e funziona.
+Effettuati i primi test con la comunicazione MQTT.  
+MQTT non sembra promettente per questa applicazione, il tempo tra i messaggi è lungo e alcuni si perdono.  
+Necessario valutare e approfondire le alternative a MQTT  
 
 # MQTT
 ## Idee per migliorare la trasmissione
