@@ -1,6 +1,6 @@
 ---
 title: 'Progetti in corso'
-date: 2025-11-19
+date: 2026-03-19
 weight: 4
 ---
 
@@ -10,11 +10,16 @@ Ogni progetto in corso richiede un luogo nel quale annotare idee, progetti, prop
 # UC1: alimentazione
 ...WIP...
 
-# UC2: RasPi e I2C
+---
+
+# UC2: RasPi e sensori IMU, GPS
 L'obiettivo del gruppo di lavoro è studiare la possibile rimozione dei microcontrollori dall'Unità Centrale, connettendo direttamente i sensori al Raspberry Pi. 
 Un possibile approccio richiede la costruzione di un bus I2C (o una qualunque alternativa equivalente) che connetta i sensori ai GPIO del RasPi. A esso, va affiancata una interfaccia di comunicazione (*e.g.* `I2CInterface`) per `Communicator`, in Mothics; il suo scopo è l'acquisizione e decodifica dei dati ricevuti.
 
-## Generalità su I2C
+
+## I2C (e IMU nello specifico)
+
+### Generalità
 I2C è un protocollo seriale, multi-master, multi-slave, che richiede due linee dati:
  - SCL (serial clock): linea di clock, gestita dal master
  - SDA (serial data): linea dati, bidirezionale (master <-> slave)
@@ -26,33 +31,50 @@ In linea di massima, è possibile costruire una dorsale di comunicazione (bus) c
  - ottenere l'`ACK` dal dispositivo con l'indirizzo corretto e leggere/scrivere i registri dello stesso
  - emettere la condizione di stop.
 
-## Design del bus
+### Design del bus
 ...WIP...
 
-### Sensori
-#### GPS
-Fra i sensori GPS a disposizione è presente l'Arduino MKR GPS, basato su u-blox SAM-M8Q GNSS. Fortunatamente, è disponibile la [schematica](https://docs.arduino.cc/resources/schematics/ASX00017-schematics.pdf). Il sensore verrà usato quasi esclusivamente per la prototipazione e il debugging; è ideale se utilizzato con un Arduino MKR, mentre non è la soluzione ottimale in qualunque altro caso.
-
-Da quanto emerge dalla [documentazione](https://docs.arduino.cc/resources/pinouts/ABX00023-full-pinout.pdf) del microcontrollore associato (famiglia Arduino MKR), la porta di comunicazione alternativa alla modalita HAT è un connettore JST-PH a 5 pin che fornisce alimentazione a 5V e GND, i due pin I2C canonici e un terzo pin corrispondente al pin D7 dell'header.
-
-L'altro sensore attualmente disponibile è il GY-NEO6MV2, basato su u-blox NEO-6M. 
-
-## Interfaccia per Communicator
+### Interfaccia per Communicator
 L'approccio più congruo alle scelte di design del codice richiede la creazione di un'interfaccia unica, `I2CInterface`. Essa agirà da *master*, con i vari sensori I2C del bus come *slaves*. I suoi compiti sono
  1. interfacciarsi *con il metallo*, *i.e.* con i pin I2C-enabled dei GPIO del RasPi
  2. acquisire gli indirizzi dei sensori sul bus
  3. interrogare periodicamente i vari sensori connessi al bus per acquisirne i dati
  4. tradurre i dati per renderli utili e fruibili ai livelli superiori di Mothics (`Aggregator`, ..., utente finale)
  
-### 1. Interazione con i GPIO
+### Interazione con i GPIO
 Il RasPi offre i pin
  - GPIO 2 (SDA), GPIO 3 (SCL) come principali pin I2C
  - GPIO 0 (SDA), GPIO 1 (SCL) come pin I2C abilitabili via software.
 
-### 4. Parsing dei dati
+## UART (e GPS nello specifico)
+
+### Generalità
+La porta UART del Raspberry Pi è accessibile come qualsiasi altra porta seriale di sistema, all'indirizzo `/dev/ttyS0`; è quindi sufficiente riutilizzare il codice di `SerialInterface` per collegarsi a tale porta.  
+Da notare che il suddetto canale di comunicazione, salvo nostra ignoranza, non è un "bus" inteso nel senso comune (un canale di comunicazione al quale possono "agganciarsi" molteplici sensori), ma è semplicemente un collegamento tra raspberry ed una sola periferica. 
+
+### GPS
+
+>Fra i sensori GPS a disposizione è presente l'Arduino MKR GPS, basato su u-blox SAM-M8Q GNSS. Fortunatamente, è disponibile la [schematica](https://docs.arduino.cc/resources/schematics/ASX00017-schematics.pdf). Il sensore verrà usato quasi esclusivamente per la prototipazione e il debugging; è ideale se utilizzato con un Arduino MKR, mentre non è la soluzione ottimale in qualunque altro caso.
+>
+>Da quanto emerge dalla [documentazione](https://docs.arduino.cc/resources/pinouts/ABX00023-full-pinout.pdf) del microcontrollore associato (famiglia Arduino MKR), la porta di comunicazione alternativa alla modalita HAT è un connettore JST-PH a 5 pin che fornisce alimentazione a 5V e GND, i due pin I2C canonici e un terzo pin corrispondente al pin D7 dell'header.
+>
+>L'altro sensore attualmente disponibile è il GY-NEO6MV2, basato su u-blox NEO-6M.  
+Il testo sopra è superfluo alla attuale attività di progettazione, verrà tenuto in questa forma ai puri fini della preservazione, e in futuro rimosso  
+
+### Approccio:  
+Creare una nuova classe, (e.g. "SerialUartGPSInterface") che erediti tutti i campi e metodi da `SerialInterface` ma che sovrascriva il metodo `_run_loop()` con il codice necessario ad effettuare il parsing dei dati NMEA dal GPS, per poi chiamare il metodo `on_message_callback()` e lasciar proseguire il flusso dei dati come normale.  
+
+### Nota:
+Per il futuro, si può pensare ad implementare un modulo del software, con lo stesso identico comportamento degli attuali `preprocessor`, ma dedicato invece a fare il parsing dei dati da varie interfacce particolari. Questo renderebbe superflua la creazione di una nuova classe ad-hoc per ogni sensore che intendiamo collegare all'unità centrale, permettendoci invece di usare le classi già presenti (serial, mqtt, gpio, ecc..) con un "parser" dedicato associato ad ogni interfaccia.  
+Questo approccio tuttavia comporta un dispendio di risorse che il nostro reparto in questo momento non può permettersi.  
+Verrà quindi studiato l'approcio indicato sopra e questa alternativa verrà indicata come "To do".
+
+### Parsing dei dati
 Il parsing può essere effettuato sfruttando due librerie di Python
  - [`pynmea2`](https://github.com/Knio/pynmea2) per il parsing dei dati del GPS (protocollo NMEA 0183)
  - una libreria stile-`smbus` per il parsing dei dati degli altri sensori.
+
+---
 
 # AU1: Anemometro
 
@@ -64,6 +86,8 @@ Il design utilizza tecnologia a sensori ad effetto Hall per rilevare il moviment
 Effettuati i primi test con la comunicazione MQTT.  
 MQTT non sembra promettente per questa applicazione, il tempo tra i messaggi è lungo e alcuni si perdono.  
 Necessario valutare e approfondire le alternative a MQTT  
+
+---
 
 # MQTT
 ## Idee per migliorare la trasmissione
