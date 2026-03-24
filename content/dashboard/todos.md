@@ -21,14 +21,20 @@ date: 2026-03-19
 
 ## UC2: RasPi e sensori
 È caldamente suggerito di curiosare nella [documentazione](https://audace-sailing-team.github.io/mothics/api/mothics) del codice (in particolare `comm_interface`) e di comprendere il funzionamento del protocollo di comunicazione I2C.
-I filoni principali di lavoro sono UART (GPS)
-- [ ] Costruire una funzione "ready to deploy" che esegua il parsing dei dati NMEA dal GPS e che possa nel finale simulare una chiamata a `on_message_callback()` con i dati di `topic: valore`.  
-- [ ] Scrivere una classe (tempornaneamente definitiva) `UARTGPSInterface` (o simili), ereditaria di `SerialInterface` che implementi, nel suo `_run_loop()` la funzione descritta al ToDo precedente.  
-e I2C (IMU e altri sensori) 
-- [ ] Prototipare bus I2C
-- [ ] Provare script di test in Python per comunicare coi sensore in I2C
-- [ ] Capire che informazioni danno i sensori in bus I2C 
-- [ ] Scrivere `I2CInterface`
+I filoni principali di lavoro sono:
+### UART (GPS)
+- [x] Costruire una funzione "ready to deploy" che esegua il parsing dei dati NMEA dal GPS e che possa nel finale simulare una chiamata a `on_message_callback()` con i dati di `topic: valore`.  
+- [x] Scrivere una classe (tempornaneamente definitiva) `UARTGPSInterface` (o simili), ereditaria di `SerialInterface` che implementi, nel suo `_run_loop()` la funzione descritta al ToDo precedente.  
+- [ ] Effettuare le ultime considerazioni sull'approccio usato
+- [ ] Push del codice
+- [ ] Creazione di un programmino di traduzione dal nostro tipo di salvataggio .json a .gpx
+- [ ] Test di precisione, affidabilità ed accuratezza del GPS appena implementato.
+### I2C (IMU e altri sensori) 
+- [x] Prototipare bus I2C
+- [ ] Finalizzare le scelte di costruzione dell'interfaccia I2C
+- [ ]  Scrivere `I2CInterface` 
+- [x] Provare script di test in Python per comunicare coi sensore in I2C
+- [x] Capire che informazioni danno i sensori in bus I2C 
 
 ---
 

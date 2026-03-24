@@ -20,7 +20,7 @@ baudrate = 9600 #per il gps va bene 9600
 # Topics can be a single string or a comma‐separated list
 topics = "rm2/wind/speed" #ecc...
 ```
-A quel punto l'inizializzazione della porta seriale avviene con successo, tuttavia i dati non sono (ovviamente) leggibili da Mothics, in quanto lui si aspetta una struttura stile-json del tipo "dizionario di pithon" (coppie topic:valore), ma questo non è un problema  
+A quel punto l'inizializzazione della porta seriale avviene con successo, tuttavia i dati non sono (ovviamente) leggibili da Mothics, in quanto lui si aspetta una struttura stile-json del tipo "dizionario di Python" (coppie topic:valore), ma questo non è un problema  
 
 Per riprodurre il comportamento, editare il file di configurazione `config.toml` con l'entrata sopracitata, eseguire `start live`, eseguire `stop` e per vedere che tutto sia accaduto come previsto eseguire `log show`  
 Verranno mostrati errori di parsing dei dati ma verrà anche mostrato il dato NMEA

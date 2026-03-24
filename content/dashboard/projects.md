@@ -20,10 +20,15 @@ Un possibile approccio richiede la costruzione di un bus I2C (o una qualunque al
 ## I2C (e IMU nello specifico)
 
 ### Generalità
-I2C è un protocollo seriale, multi-master, multi-slave, che richiede due linee dati:
- - SCL (serial clock): linea di clock, gestita dal master
- - SDA (serial data): linea dati, bidirezionale (master <-> slave)
-Ogni dispositivo/sensore slave è dotato di un proprio indirizzo a 7 o 10 bit, non noto a priori al master.
+- I2C è un protocollo seriale, multi-master, multi-slave, che richiede due linee dati:
+	 - SCL (serial clock): linea di clock, gestita dal master
+	 - SDA (serial data): linea dati, bidirezionale (master <-> slave)
+- Ogni dispositivo/sensore slave è dotato di un proprio indirizzo a 7 o 10 bit, non noto a priori al master.
+- Ogni sensore ha il suo modo di comunicare lungo il bus i2c, le alternative variano dalla comunicazione a stringhe di testo di "Stile-Seriale" alla lettura diretta di registri del sensore in questione.
+- Ogni sensore I2C è inizializzato in un modo quasi-unico, alcune librerie prendono in inizializzazione l'indirizzo e il bus e fanno tutto autonomamente, mentre altre prevedono che venga creato un oggetto "bus I2C" e che gli venga passato come parametro.
+- Potrebbero esserci eventuali problemi nel caso in cui le interfacce di molteplici sensori I2C (ognuna gestita da un thread dedicato) vogliano accedere al bus contemporaneamente. Un'eventuale soluzione sarebbe l'utilizzo del meccanismo dei "mutex" già presenti nel modulo "threading" di python.
+  Verrà svolto un breve test per verificare che questo tipo di esclusività non avvenga già a livello del kernel linux nei termini di accesso al bus hardware. 
+
 
 In linea di massima, è possibile costruire una dorsale di comunicazione (bus) che connette tutti i sensori con il master. Esso dovrà procedere a 
  - ottenere gli indirizzi di tutti gli slave manualmente (inseriti dall'utente), o automaticamente con strumenti come `i2cdetect`
@@ -32,7 +37,30 @@ In linea di massima, è possibile costruire una dorsale di comunicazione (bus) c
  - emettere la condizione di stop.
 
 ### Design del bus
-...WIP...
+Le alternative per definire l'architettura del codice dell'interfaccia I2C sarebbero due:
+#### Approccio "dirty" (e forse "quick")
+Scrittura e aggiunta di una classe dedicata per ogni sensore che si voglia usare, allo stesso livello gerarchico delle classi `SerialInterface`, `MQTTInterface`, ecc...
+Ogni sensore ha la propria implementazione dei metodi di accesso al bus e si mantiene la chiamata a una funzione tipo `on_message_callback()` per l'aggiunta in lista dei punti dato.
+
+Pro:
+- La scrittura del codice è veloce e diretta, e può essere effettuata anche copiando parti del codice già scritto (e.g. `SerialInterface`).
+Contro:
+- La soluzione andrebbe in "conflitto" con il paradigma usato fino adesso di definire una classe per ogni *tipo di comunicazione*, ma piuttosto di definire una classe per ogni *tipo di sensore*.
+- Questo approccio risulta particolarmente disordinato all'aumentare dei sensori compatibili con mothics. Sarebbe infatti necessario inserire tutto il codice in `comm_interface.py` rendendolo di ancor più difficile navigazione.
+
+#### Approccio "clean"
+Scrittura di un'unica interfaccia `I2CInterface`, sottoclasse di `BaseInterface`, e che nell'inizializzazione si *adatti* al tipo di sensore dichiarato nei file di configurazione.
+Questo verrebbe ottenuto tramite la creazione di un nuovo modulo contenente: 
+- Una nuova classe base: `I2CSensor`, incaricata di modellare un "oggetto I2C". Essa possiederà i campi e metodi (e.g. getSensorData() o initalizeSensor()) necessari alla manipolazione di un generico sensore I2C.
+	- Un'insieme di sottoclassi di `I2CSensor`, ognuna delle quali gestisce con del codice ad-hoc l'interazione con il sensore specifico.
+L'adattabilità a molteplici sensori può essere gestita con un meccanismo simile (se non identico) a quello usato per distinguere le varie interfacce di comunicazione: in base alle opzioni dichiarate nel file di configurazione (nelle quali sarà indicato il modello del sensore I2C interessato) viene istanziata la classe dedicata al tipo di sensore. L'interazione con questa classe avviene successivamente con i metodi di accesso al sensore standard dichiarati in `I2CSensor`.
+
+Pro:
+- Maggior ordine nella scrittura del codice: viene mantenuto il paradigma di Communicator, dove risiedono le descrizioni delle "interfacce di comunicazione".
+- Minor confusione e sovraccarico del file `comm_interface.py`, il quale vedrà aggiunta solo una classe `I2CInterface`, mentre il codice dedicato alla gestione dei vari tipi di sensore I2C avverrà in un modulo (file) separato.
+- Maggiore modularità e sviluppabilità del codice, nel caso di sviluppo e utilizzo di nuovi e svariati sensori I2C.
+Contro:
+- Aumento del carico di scrittura del codice con la creazione di un nuovo modulo con i meccanismi di gestione di vari sensori I2C.
 
 ### Interfaccia per Communicator
 L'approccio più congruo alle scelte di design del codice richiede la creazione di un'interfaccia unica, `I2CInterface`. Essa agirà da *master*, con i vari sensori I2C del bus come *slaves*. I suoi compiti sono
