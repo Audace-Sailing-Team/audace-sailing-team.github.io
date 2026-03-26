@@ -8,15 +8,12 @@ date: 2026-03-19
 # Progetti in corso  
 
 ## UC1: alimentazione
-- [x] Inventariare attuali strumenti di immagazzinamento energia (18650, LiPo, etc..)
-- [x] Studiare attuale composizione delle unità per quanto riguarda i consumi e l'energia fornibile in uscita dal RasPi
-- [x] Studiare caratteristiche dei vari modi di alimentare ogni board (USB-C, JST,...) con relative caratteristiche di sicurezza e requirement di tensione/corrente
-- [x] Scrivere report riguardante le possibili architetture dell'unità centrale e alternative strade di alimentazione
 - [ ] Esegure studio su carico "realistico" (raspi + mothics a vuoto + script di polling dei sensori) sulla durata della configurazione di 4x18650 in 2s2p
 - [ ] Progettare scatola per l'unità centrale  
-	- [x] Cercare e aggiungere i modelli di GPS, IMU e 18650 al CAD della scatola
-	- [x] Preparare un possibile "render" per suddetta scatola da allegare nel report S1 (che sia più definitiva possibile)
 	- [ ] Facendo riferimento alle misure dei componenti, aggiungere al CAD i buchi e standoff per avvitare Raspberry e Torpedo2
+	- [ ] Aggiungere buchi per inserti a caldo viti di chiusura (Almeno due sopra, due sotto e una per ognuna delle alette laterali)
+		- [ ] Trovare specifiche degli inserti a caldo M3 che sono in lab, e nello specifico il diametro del foro e tipo di svaso da dare al foro
+		- [ ] Aggiungere i buchi delle dimensioni corrette, aggiungendo materiale dove necessario in modo da avere almeno un **tot** (2/3mm?) di spazio per una guarnizione. La guarnizione deve passare INTERNAMENTE alle viti, in quanto queste ultime non devono essere necessariamente impermeabili.
 - [ ] Creazione primo prototipo di scatola
 	- [ ] Stampa
 		- [ ] GuscioEsterno

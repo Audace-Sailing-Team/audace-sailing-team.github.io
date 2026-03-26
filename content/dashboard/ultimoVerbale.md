@@ -15,6 +15,7 @@ Iniziata la scrittura della classe `I2CInterface` e della Superclasse `I2CSensor
 
 Ultimata la disposizione interna delle componenti nella scatola. I prossimi passi saranno:
 - Facendo riferimento alle misure dei componenti, aggiungere al CAD i buchi e standoff per avvitare Raspberry e Torpedo2
+- Aggiungere buchi per inserti a caldo viti
 - Costruire le schede dei componenti IMU e GPS, con connettori JST appropriati.
 - Saldare gli IMU su tali schede
 - Stampare un mockup di scatola ed eseguire un primo fitting
