@@ -14,8 +14,19 @@ date: 2026-03-19
 - [x] Scrivere report riguardante le possibili architetture dell'unità centrale e alternative strade di alimentazione
 - [ ] Esegure studio su carico "realistico" (raspi + mothics a vuoto + script di polling dei sensori) sulla durata della configurazione di 4x18650 in 2s2p
 - [ ] Progettare scatola per l'unità centrale  
-	- [ ] Cercare e aggiungere i modelli di GPS, IMU e 18650 al CAD della scatola
-	- [ ] Preparare un possibile "render" per suddetta scatola da allegare nel report S1 (che sia più definitiva possibile)
+	- [x] Cercare e aggiungere i modelli di GPS, IMU e 18650 al CAD della scatola
+	- [x] Preparare un possibile "render" per suddetta scatola da allegare nel report S1 (che sia più definitiva possibile)
+	- [ ] Facendo riferimento alle misure dei componenti, aggiungere al CAD i buchi e standoff per avvitare Raspberry e Torpedo2
+- [ ] Creazione primo prototipo di scatola
+	- [ ] Stampa
+		- [ ] GuscioEsterno
+		- [ ] ScheletroInterno
+		- [ ] Tappo
+	- [ ] Preparazione e saldatura delle schede dei moduli sensore (IMU e GPS) con i connettori appropriati.
+	- [ ] Salduatura dei sensori sui moduli (Prestando attenzione all'orientamento per IMU!!!).
+	- [ ] Progettare dei supporti (con viti o ad incastro) per il fitting dei vari sensori
+	- [ ] Fitting
+
 
 ---
 
@@ -31,7 +42,7 @@ I filoni principali di lavoro sono:
 - [ ] Test di precisione, affidabilità ed accuratezza del GPS appena implementato.
 ### I2C (IMU e altri sensori) 
 - [x] Prototipare bus I2C
-- [ ] Finalizzare le scelte di costruzione dell'interfaccia I2C
+- [x] Finalizzare le scelte di costruzione dell'interfaccia I2C
 - [ ]  Scrivere `I2CInterface` 
 - [x] Provare script di test in Python per comunicare coi sensore in I2C
 - [x] Capire che informazioni danno i sensori in bus I2C 
