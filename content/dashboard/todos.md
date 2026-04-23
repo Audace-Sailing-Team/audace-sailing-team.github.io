@@ -8,22 +8,25 @@ date: 2026-03-19
 # Progetti in corso  
 
 ## UC1: alimentazione
-- [ ] Esegure studio su carico "realistico" (raspi + mothics a vuoto + script di polling dei sensori) sulla durata della configurazione di 4x18650 in 2s2p
-- [ ] Progettare scatola per l'unità centrale  
-	- [ ] Facendo riferimento alle misure dei componenti, aggiungere al CAD i buchi e standoff per avvitare Raspberry e Torpedo2
-	- [ ] Aggiungere buchi per inserti a caldo viti di chiusura (Almeno due sopra, due sotto e una per ognuna delle alette laterali)
-		- [ ] Trovare specifiche degli inserti a caldo M3 che sono in lab, e nello specifico il diametro del foro e tipo di svaso da dare al foro
-		- [ ] Aggiungere i buchi delle dimensioni corrette, aggiungendo materiale dove necessario in modo da avere almeno un **tot** (2/3mm?) di spazio per una guarnizione. La guarnizione deve passare INTERNAMENTE alle viti, in quanto queste ultime non devono essere necessariamente impermeabili.
+
 - [ ] Creazione primo prototipo di scatola
+	- [ ] Modellazione
+		- [ ] Modificare ScheletroInterno secondo le seguenti:
+			- [ ] Traslare verso il centro il Raspberry Pi il più possibile in modo tale da permettere ai pin interessati dalle connessioni I2C, UART e alimentazione di non interferire con il foro per la vite presente in loro corrispondenza (circa 5mm?) Per fare ciò è necessario spostare il foro della vite centrale del guscio e la paratia centrale dello scheletro il più possibile verso il lato di dritta. Inoltre è necessario traslare anche il Torpedo2 più a dritta possibile.
+			- [ ] Ruotare di 180 gradi il torpedo in modo che dal lato del tappo venga mostrato il lato con il jack DC. Questo per permettere una maggiore traslazione del torpedo (e quindi del raspberry) e per permettere ai pin delle batterie di avere sufficiente margine (in fase di inserimento, rispetto al foro della vite in basso a destra) per essere collegati.
+			- [ ] Aggiungere griglia di aerazione alla paratia centrale tra RasPi e Torpedo2
+		- [ ] (!se necessario) Modificare GuscioEsterno, spostando il foro della vite in basso-centro-dritta per ovviare allo spostamento della paratia centrale di ScheletroInterno verso dritta
 	- [ ] Stampa
-		- [ ] GuscioEsterno
+		- [x] GuscioEsterno
 		- [ ] ScheletroInterno
+		- [ ] (!se necessario) GuscioEsterno
 		- [ ] Tappo
+		- [ ] Guarnizione
 	- [ ] Preparazione e saldatura delle schede dei moduli sensore (IMU e GPS) con i connettori appropriati.
 	- [ ] Salduatura dei sensori sui moduli (Prestando attenzione all'orientamento per IMU!!!).
-	- [ ] Progettare dei supporti (con viti o ad incastro) per il fitting dei vari sensori
+	- [x] Progettare dei supporti (con viti o ad incastro) per il fitting dei vari sensori
 	- [ ] Fitting
-
+- [ ] Test di alimentazione e autonomia in scenario realistico della configurazione adottata (3,7V LiPo 2p)
 
 ---
 
@@ -31,18 +34,23 @@ date: 2026-03-19
 È caldamente suggerito di curiosare nella [documentazione](https://audace-sailing-team.github.io/mothics/api/mothics) del codice (in particolare `comm_interface`) e di comprendere il funzionamento del protocollo di comunicazione I2C.
 I filoni principali di lavoro sono:
 ### UART (GPS)
-- [x] Costruire una funzione "ready to deploy" che esegua il parsing dei dati NMEA dal GPS e che possa nel finale simulare una chiamata a `on_message_callback()` con i dati di `topic: valore`.  
-- [x] Scrivere una classe (tempornaneamente definitiva) `UARTGPSInterface` (o simili), ereditaria di `SerialInterface` che implementi, nel suo `_run_loop()` la funzione descritta al ToDo precedente.  
-- [ ] Effettuare le ultime considerazioni sull'approccio usato
-- [ ] Push del codice
+- [x] Effettuare le ultime considerazioni sull'approccio usato
+- [x] Push del codice
 - [ ] Creazione di un programmino di traduzione dal nostro tipo di salvataggio .json a .gpx
 - [ ] Test di precisione, affidabilità ed accuratezza del GPS appena implementato.
 ### I2C (IMU e altri sensori) 
-- [x] Prototipare bus I2C
-- [x] Finalizzare le scelte di costruzione dell'interfaccia I2C
-- [ ]  Scrivere `I2CInterface` 
-- [x] Provare script di test in Python per comunicare coi sensore in I2C
-- [x] Capire che informazioni danno i sensori in bus I2C 
+- [x]  Scrivere `I2CInterface` 
+- [x] Code review del'ultimo push
+- [ ] Convertire la gerarchia di configurazione di i2c da una lista di dizionari (una per sensore), ad un dizionario strutturato come nomeInterfaccia:dizionarioSensore, in modo da mantenere la struttura logica usata fino adesso
+- [ ] Configurare il DEFAULT_CONFIG con solo l'imu adafruit
+- [ ] Configurare il TOML con tutto quanto commentato, e solo l'imu adafruit abilitato
+
+### WebApp
+Aggiustare la webapp
+- [ ] Identificare componenti superflue WebApp
+	L'implementazione finale della WebApp mira a fornire l'interfaccia sufficiente ad interagire con le impostazioni dell'unità centrale, 
+- [ ] Alleggerire la WebApp delle componenti superflue
+- [ ] Correzione errori e prima run della nuova WebApp
 
 ---
 

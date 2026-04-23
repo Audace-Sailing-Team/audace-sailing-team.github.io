@@ -37,30 +37,15 @@ In linea di massima, è possibile costruire una dorsale di comunicazione (bus) c
  - emettere la condizione di stop.
 
 ### Design del bus
-Le alternative per definire l'architettura del codice dell'interfaccia I2C sarebbero due:
-#### Approccio "dirty" (e forse "quick")
-Scrittura e aggiunta di una classe dedicata per ogni sensore che si voglia usare, allo stesso livello gerarchico delle classi `SerialInterface`, `MQTTInterface`, ecc...
-Ogni sensore ha la propria implementazione dei metodi di accesso al bus e si mantiene la chiamata a una funzione tipo `on_message_callback()` per l'aggiunta in lista dei punti dato.
 
-Pro:
-- La scrittura del codice è veloce e diretta, e può essere effettuata anche copiando parti del codice già scritto (e.g. `SerialInterface`).
-Contro:
-- La soluzione andrebbe in "conflitto" con il paradigma usato fino adesso di definire una classe per ogni *tipo di comunicazione*, ma piuttosto di definire una classe per ogni *tipo di sensore*.
-- Questo approccio risulta particolarmente disordinato all'aumentare dei sensori compatibili con mothics. Sarebbe infatti necessario inserire tutto il codice in `comm_interface.py` rendendolo di ancor più difficile navigazione.
+Scrittura di un'unica interfaccia `I2CInterface`, sottoclasse di `BaseInterface`, che durante l'inizializzazione si adatti al tipo di sensore dichiarato nei file di configurazione.
 
-#### Approccio "clean"
-Scrittura di un'unica interfaccia `I2CInterface`, sottoclasse di `BaseInterface`, e che nell'inizializzazione si *adatti* al tipo di sensore dichiarato nei file di configurazione.
-Questo verrebbe ottenuto tramite la creazione di un nuovo modulo contenente: 
-- Una nuova classe base: `I2CSensor`, incaricata di modellare un "oggetto I2C". Essa possiederà i campi e metodi (e.g. getSensorData() o initalizeSensor()) necessari alla manipolazione di un generico sensore I2C.
-	- Un'insieme di sottoclassi di `I2CSensor`, ognuna delle quali gestisce con del codice ad-hoc l'interazione con il sensore specifico.
-L'adattabilità a molteplici sensori può essere gestita con un meccanismo simile (se non identico) a quello usato per distinguere le varie interfacce di comunicazione: in base alle opzioni dichiarate nel file di configurazione (nelle quali sarà indicato il modello del sensore I2C interessato) viene istanziata la classe dedicata al tipo di sensore. L'interazione con questa classe avviene successivamente con i metodi di accesso al sensore standard dichiarati in `I2CSensor`.
+Questo viene ottenuto tramite la creazione del modulo `i2c_modules.py` contenente:
 
-Pro:
-- Maggior ordine nella scrittura del codice: viene mantenuto il paradigma di Communicator, dove risiedono le descrizioni delle "interfacce di comunicazione".
-- Minor confusione e sovraccarico del file `comm_interface.py`, il quale vedrà aggiunta solo una classe `I2CInterface`, mentre il codice dedicato alla gestione dei vari tipi di sensore I2C avverrà in un modulo (file) separato.
-- Maggiore modularità e sviluppabilità del codice, nel caso di sviluppo e utilizzo di nuovi e svariati sensori I2C.
-Contro:
-- Aumento del carico di scrittura del codice con la creazione di un nuovo modulo con i meccanismi di gestione di vari sensori I2C.
+- Una nuova classe base: `I2CModuleBase`, incaricata di modellare un generico "oggetto I2C". Essa definisce i metodi standard necessari alla manipolazione del sensore, in particolare `setup()`, `read()` e `cleanup()`.
+- Un insieme di sottoclassi di `I2CModuleBase` (come `MPU6050Module`, `DPS310Module` e `BNO08xModule`), ognuna delle quali gestisce con del codice ad-hoc l'interazione hardware con il sensore specifico.
+
+L'adattabilità a molteplici sensori è gestita tramite un pattern di registrazione: all'interno del modulo è definito il dizionario `i2c_module_registry` che mappa i nomi dei sensori (es. "mpu6050") alle relative classi. In base al tipo di sensore indicato nella configurazione, `I2CInterface` interroga questo registro per istanziare dinamicamente la classe corretta. L'interazione successiva del ciclo di lettura avviene in maniera totalmente agnostica, utilizzando unicamente i metodi polimorfici standard (`setup()` e `read()`) esposti dalla classe base.
 
 ### Interfaccia per Communicator
 L'approccio più congruo alle scelte di design del codice richiede la creazione di un'interfaccia unica, `I2CInterface`. Essa agirà da *master*, con i vari sensori I2C del bus come *slaves*. I suoi compiti sono
@@ -89,9 +74,24 @@ Da notare che il suddetto canale di comunicazione, salvo nostra ignoranza, non �
 >L'altro sensore attualmente disponibile è il GY-NEO6MV2, basato su u-blox NEO-6M.  
 Il testo sopra è superfluo alla attuale attività di progettazione, verrà tenuto in questa forma ai puri fini della preservazione, e in futuro rimosso  
 
-### Approccio:  
-Creare una nuova classe, (e.g. "SerialUartGPSInterface") che erediti tutti i campi e metodi da `SerialInterface` ma che sovrascriva il metodo `_run_loop()` con il codice necessario ad effettuare il parsing dei dati NMEA dal GPS, per poi chiamare il metodo `on_message_callback()` e lasciar proseguire il flusso dei dati come normale.  
+#### `GPSInterface`
 
+**Descrizione** Interfaccia dedicata alla ricezione e decodifica dei dati GPS in formato NMEA via connessione UART. Estende direttamente `SerialInterface`, riutilizzandone la logica di connessione e la gestione asincrona dei thread, e specializzandone esclusivamente il metodo di lettura continua (`_run_loop()`).
+
+**Architettura e Flusso Dati**
+1. **Lettura e Filtraggio:** Il ciclo di lettura intercetta il traffico seriale, isolando e processando unicamente le stringhe che iniziano con il carattere `$` (identificativo standard NMEA).
+2. **Parsing:** La decodifica delle stringhe è delegata al modulo esterno `pynmea2`, che trasforma la stringa raw in un oggetto strutturato.
+3. **Gestione Errori:** La fase di parsing è protetta da un blocco `try-except` per intercettare l'eccezione `pynmea2.ParseError`. Questo garantisce che eventuali artefatti o pacchetti corrotti sulla seriale vengano scartati senza causare l'interruzione irreversibile del thread di ascolto.
+4. **Inoltro Messaggi:** I dati estratti vengono passati al sistema centrale tramite la funzione `on_message_callback()`, associandoli a specifici indirizzi di topic.
+
+**Protocolli Supportati (Sentenze NMEA)** Attualmente l'interfaccia esegue il parsing selettivo di due tipologie di messaggi:
+
+- **GGA (Global Positioning System Fix Data):**
+    - Estrae: Latitudine, Longitudine, Numero di Satelliti.
+    - Topic di destinazione: `gps/position/lat`, `gps/position/lon`, `gps/status/sats`.
+- **RMC (Recommended Minimum Specific GNSS Data):**
+    - Estrae: Latitudine, Longitudine, Validità del segnale (Status).
+    - Topic di destinazione: `gps/position/lat`, `gps/position/lon`, `gps/status/valid`.
 ### Nota:
 Per il futuro, si può pensare ad implementare un modulo del software, con lo stesso identico comportamento degli attuali `preprocessor`, ma dedicato invece a fare il parsing dei dati da varie interfacce particolari. Questo renderebbe superflua la creazione di una nuova classe ad-hoc per ogni sensore che intendiamo collegare all'unità centrale, permettendoci invece di usare le classi già presenti (serial, mqtt, gpio, ecc..) con un "parser" dedicato associato ad ogni interfaccia.  
 Questo approccio tuttavia comporta un dispendio di risorse che il nostro reparto in questo momento non può permettersi.  
