@@ -9,21 +9,25 @@ date: 2026-03-19
 
 ## UC_HW
 
-- [ ] Creazione primo prototipo di scatola
-	- [x] Modellazione
-		- [x] Modificare ScheletroInterno secondo le seguenti:
-			- [x] Traslare verso il centro il Raspberry Pi il più possibile in modo tale da permettere ai pin interessati dalle connessioni I2C, UART e alimentazione di non interferire con il foro per la vite presente in loro corrispondenza (circa 5mm?) Per fare ciò è necessario spostare il foro della vite centrale del guscio e la paratia centrale dello scheletro il più possibile verso il lato di dritta. Inoltre è necessario traslare anche il Torpedo2 più a dritta possibile.
-			- [x] Ruotare di 180 gradi il torpedo in modo che dal lato del tappo venga mostrato il lato con il jack DC. Questo per permettere una maggiore traslazione del torpedo (e quindi del raspberry) e per permettere ai pin delle batterie di avere sufficiente margine (in fase di inserimento, rispetto al foro della vite in basso a destra) per essere collegati.
-			- [x] Aggiungere griglia di aerazione alla paratia centrale tra RasPi e Torpedo2
-		- [x] (!se necessario) Modificare GuscioEsterno, spostando il foro della vite in basso-centro-dritta per ovviare allo spostamento della paratia centrale di ScheletroInterno verso dritta
-	- [ ] Stampa
-		- [x] GuscioEsterno
-		- [ ] ScheletroInterno
-		- [ ] (!se necessario) GuscioEsterno
-		- [x] Tappo
-		- [ ] Guarnizione
-	- [x] Progettare dei supporti (con viti o ad incastro) per il fitting dei vari sensori
-	- [ ] Fitting
+- [ ] Creazione scatola 2.0
+	- [ ] Guscio
+		- [ ] Stampa guscio
+		- [ ] Fitta guscio su barca
+	- [ ] Scheletro interno
+		- [ ] Modellazione 
+			- [ ] Pinne di supporto in compressione sulla testa della scatola
+			- [ ] Valutare inserti a caldo per componenti
+			- [ ] DHT22
+			- [ ] RTC
+			- [ ] ADC
+		- [ ] Creazione
+			- [ ] Stampa prototipo
+			- [ ] Fitta
+- [ ] Creazione scatola 2.0 backup
+	- [ ] Scheletro Interno
+		- [ ] Modellazione
+			- [ ] Adafruit ultimate gps
+			- [ ] IMU nuovo (non mi ricordo il codice)
 - [ ] Test di alimentazione e autonomia in scenario realistico della configurazione adottata (3,7V LiPo 2p)
 
 ---
@@ -32,15 +36,25 @@ date: 2026-03-19
 È caldamente suggerito di curiosare nella [documentazione](https://audace-sailing-team.github.io/mothics/api/mothics) del codice (in particolare `comm_interface`) e di comprendere il funzionamento del protocollo di comunicazione I2C.
 I filoni principali di lavoro sono:
 ### UART (GPS)
-- [ ] Creazione di un programmino di traduzione dal nostro tipo di salvataggio .json a .gpx
+- [ ] Adafruit Ultimate GPS
+	- [ ] Creare modulo software
+	- [ ] Testare
+		- [ ] Funzionamento
+		- [ ] Tempo cold start (avvio con presa satelliti)
+		- [ ] Velocità di campionamento
+- [ ] IMU nuovo (non mi ricordo il codice)
+	- [ ] Creare modulo software
 - [ ] Test di precisione, affidabilità ed accuratezza del GPS appena implementato.
+- [ ] Creazione di un programmino di traduzione dal nostro tipo di salvataggio .json a .gpx
 ### I2C (IMU e altri sensori) 
 
 ### WebApp
-Aggiustare la webapp
-- [ ] Rimuovere la sezione di metadati relativa ad ogni traccia nella sezione "tracks" della webapp live per la seguente motivazione:
-      All'apertura della pagina, nel caso di tracce particolarmente lunghe, i metadati di descrizione delle tracce vengono ricavati *caricando* efe
-- [ ] Correzione errori e prima run della nuova WebApp
+- [ ] Aggiustare la webapp
+	- [ ] Rimuovere la sezione di metadati relativa ad ogni traccia nella sezione "tracks" della webapp live per la seguente motivazione:
+	      All'apertura della pagina, nel caso di tracce particolarmente lunghe, i metadati di descrizione delle tracce vengono ricavati *caricando* (?)...
+	- [ ] Implementare modulo RTC
+	- [ ] Implementare ADC lettura carica batteria
+	- [ ] Implementare DHT22
 - [ ] Aggiornare e fare ordine nei thesauri
 
 ### Mothics general
