@@ -9,33 +9,33 @@ date: 2026-03-19
 
 ## UC_HW
 
-- [ ] Creazione scatola 2.0
-	- [ ] Guscio
-		- [ ] Stampa guscio
-		- [ ] Fitta guscio su barca
-	- [ ] Scheletro interno
-		- [ ] Modellazione 
-			- [ ] Pinne di supporto in compressione sulla testa della scatola
-			- [ ] Valutare inserti a caldo per componenti
-			- [ ] DHT22
-			- [ ] RTC
-			- [ ] ADC
-		- [ ] Creazione
-			- [ ] Stampa prototipo
-			- [ ] Fitta
-- [ ] Creazione scatola 2.0 backup
+- [ ] Creazione scatola
 	- [ ] Scheletro Interno
 		- [ ] Modellazione
-			- [ ] Adafruit ultimate gps
-			- [ ] IMU nuovo (non mi ricordo il codice)
-- [ ] Test di alimentazione e autonomia in scenario realistico della configurazione adottata (3,7V LiPo 2p)
-
+			- [ ] Adafruit ultimate gps (per la versione backup)
+			- [ ] IMU nuovo
+			- [ ]  Implementare modulo RTC
+	- [ ] Stampa
+	- [ ] Guscio
+		- [ ] Coating
+	- [ ] Tappo
+		- [ ] Ingrossare
+		- [ ] Stampare
+	- [ ] Test impermeabilità del tutto
+- [ ] Creare schematica scheda secondo piano scatola, con partitore, adc, imu e tutti i rail necessari
+- [ ] Creare HAT raspi per quest'ultima scheda
+- [x] Test di alimentazione e autonomia in scenario realistico della configurazione adottata (3,7V LiPo 2p)
 ---
 
 ## UC_SW
 È caldamente suggerito di curiosare nella [documentazione](https://audace-sailing-team.github.io/mothics/api/mothics) del codice (in particolare `comm_interface`) e di comprendere il funzionamento del protocollo di comunicazione I2C.
 I filoni principali di lavoro sono:
-### UART (GPS)
+
+### General
+- [ ] Setuppare scheda "vergine" con Dietpi, installazione minimale ma sopratutto, pronta a regatare 
+	- [ ] Accensione automatica
+	- [ ] Vedi /docs/setup.rst
+### Sensori
 - [ ] Adafruit Ultimate GPS
 	- [ ] Creare modulo software
 	- [ ] Testare
@@ -43,10 +43,9 @@ I filoni principali di lavoro sono:
 		- [ ] Tempo cold start (avvio con presa satelliti)
 		- [ ] Velocità di campionamento
 - [ ] IMU nuovo (non mi ricordo il codice)
-	- [ ] Creare modulo software
+	- [x] Creare modulo software
 - [ ] Test di precisione, affidabilità ed accuratezza del GPS appena implementato.
 - [ ] Creazione di un programmino di traduzione dal nostro tipo di salvataggio .json a .gpx
-### I2C (IMU e altri sensori) 
 
 ### WebApp
 - [ ] Aggiustare la webapp
@@ -56,14 +55,20 @@ I filoni principali di lavoro sono:
 	- [ ] Implementare ADC lettura carica batteria
 	- [ ] Implementare DHT22
 - [ ] Aggiornare e fare ordine nei thesauri
+- [ ] Finire cherrypick Webapp Lite
+- [ ] Sistemare config (toml e default)
+	- [ ] dare nomi giusti unità remote
+	- [ ] cdn controllare correttezza e rimuovere extra
+	- [ ] controllare gestione tiles (e magari toglierla)
+	- [ ] confronto generale con config dell'anno scorso
 
 ### Mothics general
-- [ ] Modificare il comportamento di salvataggio, dal contesto attuale al seguente:
+- [x] Modificare il comportamento di salvataggio, dal contesto attuale al seguente:
       Il salvataggio avviene direttamente su un unico file con un append periodico
-	- [ ] Definire attributo di track "track_file" di track e definire l'apertura della risorsa di sistema all'inizio del periodo di salvataggio
-	- [ ] Sostituire alla logica del vecchio "checkpoint" la logica di "append" alla coda del file
-	- [ ] Gestire poi correttamente la chiusura della risorsa
-- [ ] Sistemare per bene il toml
+	- [x] Definire attributo di track "track_file" di track e definire l'apertura della risorsa di sistema all'inizio del periodo di salvataggio
+	- [x] Sostituire alla logica del vecchio "checkpoint" la logica di "append" alla coda del file
+	- [x] Gestire poi correttamente la chiusura della risorsa
+- [ ] Test salvataggio
 - [ ] Aggiungere utilities alla CLI
 	- [ ] salvataggio
 	- [ ] altra roba
