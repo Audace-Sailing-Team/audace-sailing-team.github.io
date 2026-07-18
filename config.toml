@@ -60,3 +60,8 @@ weight = 3
 
   [params.footer]
     copyright_text = '2025 - Audace Sailing Team'
+
+  [markup]
+    [markup.goldmark]
+      [markup.goldmark.renderer]
+        unsafe = true
