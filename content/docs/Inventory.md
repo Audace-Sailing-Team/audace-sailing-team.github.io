@@ -16,7 +16,7 @@ Work in progress....
 # Lista acquisti
 
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRxUwBna-M4d30l_6A-4w-KNWjbFXSVI7WVOmKmAhtBzFRn-xBd3b1Jt387M9-9p9vX2x2grBCYvWYS/pubhtml?gid=1305334110&amp;single=true&amp;widget=true&amp;headers=false"> </iframe>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRxUwBna-M4d30l_6A-4w-KNWjbFXSVI7WVOmKmAhtBzFRn-xBd3b1Jt387M9-9p9vX2x2grBCYvWYS/pubhtml?gid=1305334110&amp;single=true&amp;widget=true&amp;headers=false" style="height:auto; width:100%; text-align:center"> </iframe>
 
 
 ## Radiokalika
