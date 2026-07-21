@@ -66,3 +66,6 @@ hugo.linux
 
 # Obsidian files (editing)
 .obsidian/*
+
+themes/
+themes/hugo-whisper-theme/

@@ -31,9 +31,14 @@ name = "Risorse"
 url = "/tutorials"
 weight = 3
 
+[[menu.main]]
+name = "Archivio"
+url = "/archive"
+weight = 4
+
 
 [params]
-  mainSections = ['docs', 'dashboard', 'tutorials']
+  mainSections = ['docs', 'dashboard', 'tutorials', 'archive']
   google_analytics_id=""
   homepage_button_link = '/dashboard'
   homepage_button_text = 'Dashboard'
@@ -59,7 +64,7 @@ weight = 3
     standard  = "/images/logo.png"
 
   [params.footer]
-    copyright_text = '2025 - Audace Sailing Team'
+    copyright_text = '2026 - Audace Sailing Team'
 
   [markup]
     [markup.goldmark]

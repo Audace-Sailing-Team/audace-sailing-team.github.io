@@ -1,24 +1,13 @@
 ---
-title: Inventory
+title: Lista dei desideri 2026
 date: 2025-12-03
 weight: 4
 ---
 
-La pagina contenente inventario e lista acquisti del reparto di Sensoristica di Audace Sailing Team.  
 
 <!--more-->
 
-# Inventario  
-
-Work in progress....  
-  
----
-# Lista acquisti
-
-
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRxUwBna-M4d30l_6A-4w-KNWjbFXSVI7WVOmKmAhtBzFRn-xBd3b1Jt387M9-9p9vX2x2grBCYvWYS/pubhtml?gid=1305334110&amp;single=true&amp;widget=true&amp;headers=false" style="height:auto; width:100%; text-align:center"> </iframe>
-
-
+Lista degli acquisti sperati per il 2026, non tutti ottenuti
 ## Radiokalika
 - [ ] !! altri mosfet (?)
 - [ ] !! Circuiti di alimentazione
@@ -85,3 +74,6 @@ Totale (?)inclusi: €373,00 (IVA incl.)
 - [ ] !! bms nuovo che ci hanno detto loro
 
 Totale: speriamo 0€!!  
+
+
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRxUwBna-M4d30l_6A-4w-KNWjbFXSVI7WVOmKmAhtBzFRn-xBd3b1Jt387M9-9p9vX2x2grBCYvWYS/pubhtml?gid=1305334110&amp;single=true&amp;widget=true&amp;headers=false" style="height:auto; width:100%; text-align:center"> </iframe>

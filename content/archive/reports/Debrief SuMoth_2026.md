@@ -1,10 +1,10 @@
 ---
-title: Debrief SuMoth
+title: Debrief SuMoth 2026
 date: 2026-05-12
-weight: 4
+weight: 1
 ---
 
-Debrief SuMoth
+
 <!--more-->
 
 # Elettronica alla SuMoth del 2026
