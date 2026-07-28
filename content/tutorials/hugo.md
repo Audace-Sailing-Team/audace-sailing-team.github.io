@@ -38,4 +38,15 @@ Segui questa [guida](https://cbea.ms/git-commit/) per scrivere messaggi di commi
 
 # Stuttura
 
-...wp...
+Le cose relative all'anno passato vanno spostate nella cartella archivio divise secondo le varie cartelle.
+ - ordini: tutti gli ordini di componenti hardware fatti per il reparto
+ - Reports e Debrief: tutti i report sui lavori, debrief pre/post sumoth, ecc
+
+
+# Problemi comuni
+
+## Versione di Hugo
+
+La versione di hugo richiesta per eseguire live sul proprio device la pagina è la 0.119.0 che potete trovare al seguente link: 
+https://github.com/gohugoio/hugo/releases/tag/v0.119.0
+Non aggiornatela se no entra in conflitto con quella specificata nei file del sito.
