@@ -21,7 +21,8 @@ Per modificare i contenuti del sito, è necessario conoscere le basi del
 Markdown. Nella cartella `contents/` sono presenti i contenuti per le
 varie pagine del sito (*e.g.* `contents/dashboard/_index.md` per la *Dashboard*,
 `contents/dashboard/todos.md` per i *To-do*, `contents/docs/_index.md` per la
-*Documentazione*). 
+*Documentazione*).  
+Prima di fare il push su github è consigliato tramite il comando ``` hugo server ``` visualizzare il sito in locale sul proprio device in modo da controllare che tutto funzioni. Per problemi con hugo leggere la sezione [Problemi comuni](#problemi-comuni) 
 
 ### Commits
 Una volta modificati i contenuti del sito, crea un commit con i file
@@ -47,6 +48,7 @@ Le cose relative all'anno passato vanno spostate nella cartella archivio divise 
 
 ## Versione di Hugo
 
-La versione di hugo richiesta per eseguire live sul proprio device la pagina è la 0.119.0 che potete trovare al seguente link: 
-https://github.com/gohugoio/hugo/releases/tag/v0.119.0
-Non aggiornatela se no entra in conflitto con quella specificata nei file del sito.
+La versione di hugo richiesta per eseguire live sul proprio device la pagina è la 0.119.0 che potete trovare al seguente link:  
+https://github.com/gohugoio/hugo/releases/tag/v0.119.0  
+Non aggiornatela se no entra in conflitto con quella specificata nei file del sito.  
+Una volta installato la versione di hugo coretta andate nella cartella `audace-sailing-team.github.io/themes/hugo-whisper-theme` se la trovate vuota tornate indietro nella cartella `audace-sailing-team.github.io/themes` ed eseguite il comando `git submodule update --init --recursive`
