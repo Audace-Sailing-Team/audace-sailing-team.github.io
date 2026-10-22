@@ -12,23 +12,20 @@ Il reparto Sensoristica ha due obiettivi principali:
 Attualmente, l'impegno del reparto è concentrato sulla revisione delle Unità Centrali di acquisizione dati telemetrici, con lo scopo di migliorarne l'affidabilità e di ridurne le dimensioni.
 
 # Ruoli
- - **Enrico**: capo reparto
- - **Francesco**: il capo reparto in pensione
- - **Iacopo**: il vice altrettanto in pensione
+ - **Busdon**: il capo reparto
+ - **Enrico**: il capo reparto in pensione, ora Team Leader
+ - **Francesco**: il capo reparto in pensione, ora consigliere
+ - **Iacopo**: il vice altrettanto in pensione, ora consigliere
 
 ## Gruppo UC1: alimentazione
- - **Lisa**
  - **Ventu**
  - **Busdon**
  - **Emil**
 
 ## Gruppo UC2: sensori
   - **Martina**
-  - **Emma**
+  - **Mattia**
   - **Margherita**
   - **Alessandro**
   - **Samu**
 
-## Gruppo MQTT: Report MQTT
-  - **Lisa**
-  - **Alessandro**
