@@ -9,8 +9,14 @@ La pagina contiene inventario del reparto di Sensoristica di Audace Sailing Team
 <!--more-->
 
 
-## Sensori extra
-...WIP...
+## Sensori 
+### IMU
+ - BNO
+### GPS
+### Ultrasuoni
+- A02YYUW x2
+- AJ-SR04M x2
+## Schede
 ## Strumenti
 ...WIP...
 ## Batterie
