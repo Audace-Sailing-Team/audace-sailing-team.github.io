@@ -7,29 +7,30 @@ date: 2026-03-19
 <!--more-->
 # Progetti in corso  
 
-## UC_HW
+## Hardware
 
 - [ ] Creazione scatola
-	- [ ] Scheletro Interno
-		- [ ] Modellazione
-			- [ ] Adafruit ultimate gps (per la versione backup)
-			- [ ] IMU nuovo
-			- [ ]  Implementare modulo RTC
-	- [ ] Stampa
-	- [ ] Guscio
-		- [ ] Coating
-	- [ ] Tappo
-		- [ ] Ingrossare
-		- [ ] Stampare
-	- [ ] Test impermeabilità del tutto
-- [ ] Creare schematica scheda secondo piano scatola, con partitore, adc, imu e tutti i rail necessari
-- [ ] Creare HAT raspi per quest'ultima scheda
-- [x] Test di alimentazione e autonomia in scenario realistico della configurazione adottata (3,7V LiPo 2p)
+	- [ ] Modellazione
+		- [ ] Dimensionamento batteria per esp32
+ 		- [ ] IMU nuovo ?
+   		- [ ] Test servo 
+  	- [ ] Creazione guscio
+  		- [ ] Impermeabilizzazione
+  - [ ] PCB
+  	- [ ] Test PCB Hat rasPi quando arriva
+  	 - [ ] Corso con il racing
+  	  	- [ ] Cominciare a capire come si usa Altium e come progettare PCB
+  	    - [ ] Progettare la nostra prima PCB con circuito integrato
 ---
 
-## UC_SW
+## Software
 È caldamente suggerito di curiosare nella [documentazione](https://audace-sailing-team.github.io/mothics/api/mothics) del codice (in particolare `comm_interface`) e di comprendere il funzionamento del protocollo di comunicazione I2C.
 I filoni principali di lavoro sono:
+
+### Esp32
+- [ ] Scrittura del codice in linguaggio da decidere per esp32
+	- [ ] Decidere il linguaggio
+ 	- [ ] Scegliere protocolli di comunicazione sensori
 
 ### General
 - [ ] Setuppare scheda "vergine" con Dietpi, installazione minimale ma sopratutto, pronta a regatare 
