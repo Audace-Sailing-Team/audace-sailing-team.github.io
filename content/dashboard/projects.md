@@ -8,13 +8,18 @@ Ogni progetto in corso richiede un luogo nel quale annotare idee, progetti, prop
 <!--more-->
 
 # UC1: alimentazione
-...WIP...
+Studiare la nuova architettura della scatola così da progettare al meglio le varie alimentazioni:
+ - Dimensionare batterie per Unità centrale con ESP32 e sensori
+ - Dimensionare batterie per Unità secondaria con Raspberry Pi per salvataggio dati
+ - Dimensionare batterie per Servomotore, così da capirne anche meglio il posizionamento
 
 ---
 
-# UC2: RasPi e sensori IMU, GPS
-L'obiettivo del gruppo di lavoro è studiare la possibile rimozione dei microcontrollori dall'Unità Centrale, connettendo direttamente i sensori al Raspberry Pi. 
-Un possibile approccio richiede la costruzione di un bus I2C (o una qualunque alternativa equivalente) che connetta i sensori ai GPIO del RasPi. A esso, va affiancata una interfaccia di comunicazione (*e.g.* `I2CInterface`) per `Communicator`, in Mothics; il suo scopo è l'acquisizione e decodifica dei dati ricevuti.
+# UC2: ESP32 e sensori IMU, GPS, ultrasuoni
+L'obiettivo del gruppo di lavoro è studiare la connessione di tutti i vari sensori al micorcontrollore, che poi sarà connesso al Raspberry che si occuperà solo del salvataggio dei dati su un file così da poterli analizzare. 
+I sensori verranno connessi al microcontrollore mediante due protocolli: I2C per Adc e Uart per GPS e IMU.
+L'ideale per la comunicazione per l'IMU sarebbe l'utilizzo di I2C, ma al momento è di difficile implementazione. Si lascia comunque una sezione per approfondire la questione
+
 
 
 ## I2C (e IMU nello specifico)
@@ -60,6 +65,7 @@ Il RasPi offre i pin
  - GPIO 0 (SDA), GPIO 1 (SCL) come pin I2C abilitabili via software.
 
 ## UART (e GPS nello specifico)
+Per facilità di implemetazione, si è deciso di utilizzare il protocollo seriale anche per la comunicazione con l'IMU, si lascia un approfondimento per la connessione Raspberry e GPS, anche se non più usata
 
 ### Generalità
 La porta UART del Raspberry Pi è accessibile come qualsiasi altra porta seriale di sistema, all'indirizzo `/dev/ttyS0`; è quindi sufficiente riutilizzare il codice di `SerialInterface` per collegarsi a tale porta.  
@@ -117,15 +123,5 @@ Necessario valutare e approfondire le alternative a MQTT
 
 ---
 
-# MQTT
-## Idee per migliorare la trasmissione
-- Inviare i dati grezzi dal sensore e non pacchetti o Json riduce il carico in ricezione;
-- Impostare la comunicazione in QoS = 0 (Quality Of Service);
-- Aumentare la frequenza di comunicazione a meno di 2 secondi (1s, 500 ms): l'aumento della frequenza di trasmissione aumenta il carico sulla rete e il rischio di congestione, si può arrivare a 200 ms come margine di sicurezza;
-- Diminuire la frequenza di Keep-alive (tempo in cui la comunicazione può rimanere inattiva prima che il broker chiuda il collegamento) può ridurre il traffico sulla rete e lasciare maggiori risorse alla trasmissione dati;
-- Evitare di aprire/chiudere la connessione ad ogni messaggio, ma utilizzare una sessione persistente;
-- Uso di MQTT v5, che supporta i topic alias, permettendo di non inviare ogni volta il nome completo del topic: meno byte, meno latenza.
-
-
-## Quality of Service
-La libreria PubSubClient, implementa esclusivamente QoS 0 per la comunicazione MQTT, e non supporta QoS 1 o QoS 2.  
+# SV1: Controllo di volo
+L'obiettivo del gruppo di lavoro è sviluppare un sistema di controllo di volo elettronico, basato su sensori ad ultrasuoni per misurare l'altezza dall'acqua e sulla sensor fusion con l'IMU per capire lo stato della barca e lo sbandamento di quest'ultima. Va studiata, prima di cominicare a scrivere qualcosa, la struttura di quest'ultimo e il funzionamento, nonchè tutto ciò che poi servirà per avere dei dati sufficientemente attendibili e coerenti, come frequenze, filtri, sistemi relativi di posizioni, della scatola rispetto a quelli della barca.

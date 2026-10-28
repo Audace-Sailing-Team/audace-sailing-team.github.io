@@ -30,36 +30,38 @@ I filoni principali di lavoro sono:
 ### Esp32
 - [ ] Scrittura del codice in linguaggio da decidere per esp32
 	- [ ] Decidere il linguaggio
- 	- [ ] Scegliere protocolli di comunicazione sensori
+	- [ ] Scegliere protocolli di comunicazione sensori
+	- [ ] Test del funizionamento per ogni sensore
+		- [ ] IMU funziona e legge dati
+		- [ ] GPS funziona e legge dati
+		- [ ] DHT funziona e legge dati
+		- [ ] ADC funziona e legge dati
 
-### General
-- [ ] Setuppare scheda "vergine" con Dietpi, installazione minimale ma sopratutto, pronta a regatare 
-	- [ ] Accensione automatica
-	- [ ] Vedi /docs/setup.rst
 ### Sensori
 - [ ] Adafruit Ultimate GPS
-	- [x] Creare modulo software
+	- [] Creare modulo software
 	      In teoria dovrebbe andare uguale con NMEAGPSInterface (è un gps nmea)
 	- [ ] Testare
 		- [ ] Funzionamento
 		- [ ] Tempo cold start (avvio con presa satelliti)
 		- [ ] Velocità di campionamento
-- [x] IMU nuovo (non mi ricordo il codice)
-	- [x] Creare modulo software
-	- [ ] Sistemare saldatura errata sull'hat che si incroca con il DHT2
-	      Ricorda!!: 
-	      **TXD5 (Transmit):** **Physical Pin 32** (GPIO12 / BCM 12)
-	      **RXD5 (Receive):** **Physical Pin 33** (GPIO13 / BCM 13)
+- [ ] IMU BNO055
+	- [ ] Creare modulo software
+	- [ ] Capire la questione sistema di riferimento
 - [ ] RTC
 	- [ ] https://pimylifeup.com/raspberry-pi-rtc/
 	- [ ] https://thepihut.com/blogs/raspberry-pi-tutorials/17209332-adding-a-real-time-clock-to-your-raspberry-pi
 - [ ] DHT22
 	- [ ] Modulo software
-	- [ ] Sistemare saldatura errata sull'hat che si incrocia con il BNO
 - [ ] ADC
 	- [ ] Modulo software
-- [ ] Test di precisione, affidabilità ed accuratezza del GPS appena implementato.
-- [ ] Creazione di un programmino di traduzione dal nostro tipo di salvataggio .json a .gpx
+    - [ ] Test di precisione, affidabilità ed accuratezza del GPS appena implementato.
+    - [ ] Creazione di un programmino di traduzione dal nostro tipo di salvataggio .json a .gpx
+
+### Controllo di volo
+- [] Delineare una struttura generale
+
+
 
 ### WebApp
 - [ ] TEST-Mothics
@@ -94,6 +96,8 @@ I filoni principali di lavoro sono:
 	- [ ] altra roba
 	- [ ] testare tutto
 - [ ] Sistemare bene l'architettura dei nomi dei sensori
+- [ ] Rendere la scatola vecchia (quella rettangolare ) solida, funzionante e ready to use
+	- [ ] Fare in maniera che all'avvio del Raspberry si avvi la webapp
 
 
 ---
@@ -107,19 +111,5 @@ I filoni principali di lavoro sono:
 - [ ] Calibrazione effettiva con i vecchi dati di calibrazione  
 
 ---
-
-## MQTT: Studio su implementazione e latenza di MQTT.
- - [ ] Creare "simulatore" di unità remota (server mqtt + unità remota ardino).
- - [ ] Studio sulla latenza e frequenza massima di trasmissione dei dati.
- - [ ] Ricerca sulla modifica del Q.O.S (Quality Of Service) e l'impatto sulla latenza.
-
----
-
-# Progetti futuri
-## Unità Centrale
- - [ ] Sviluppare un modulo simil-`preprocessors` per creare una API flessibile per il parsing dei dati di qualunque tipo di sensore  
-
-## Server e comunicazione rete cellulare
-...WIP...
 
 

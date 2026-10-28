@@ -1,10 +1,10 @@
 ---
-title: 'Unità Centrale'
+title: 'Unità Centrale vecchia'
 date: 2024-11-28
 weight: 2
 ---
 
-L'**unità centrale (UC)** è costituita da un Raspberry Pi 4 B+, sul
+L'**unità centrale vecchia (OUC)** è costituita da un Raspberry Pi 4 B+, sul
 quale gira un software *in-house* (Audace Mothics `lite`) scritto in
 Python, un broker MQTT e un server Flask.
 
@@ -12,7 +12,7 @@ Python, un broker MQTT e un server Flask.
 <!--more-->
 
 
-I compiti dell'UC sono
+I compiti dell'OUC sono
  - acquisizione dati dalle unità remote mediante protocollo MQTT, seriale (e
    TCP/IP)
  - aggregazione e processing dei dati dai sensori
@@ -56,7 +56,7 @@ Classe di aggregazione dati:
 Server Flask:
  - `WebApp`: classe che avvia e fornisce un server Flask in maniera
    non bloccante, capace di acquisire dati da un `Track` e da
-   dizionari (*e.g.* stato delle UR) attraverso funzioni *getter*
+   dizionari (*e.g.* stato delle OUR) attraverso funzioni *getter*
 
 ### `Communicator`
 #### Numerazione delle unità remote
@@ -107,7 +107,7 @@ Ai nostri scopi, il minimo livello accettabile è QoS 1; QoS 2 è ideale
 ma potrebbe introdurre ritardi e latenze insostenibili. 
 
 Il QoS deve essere indicato e garantito da chi pubblica il messaggio
-(nel nostro caso, l'UR).
+(nel nostro caso, l'OUR).
    
 Alcuni riferimenti:
  - [Mosquitto test broker](https://test.mosquitto.org/)
@@ -140,7 +140,7 @@ simile sono vari,
 Alcuni riferimenti:
  - [Socket Programming in Python](https://realpython.com/python-sockets/)
 
-#### Comunicazione UC -> UR
+#### Comunicazione OUC -> UR
 In linea di principio è possibile comunicare con le UR dall'UC per
 inviare comandi; ciò è triviale con MQTT, semplice con la
 comunicazione seriale, e fattibile con TCP/IP.
@@ -188,7 +188,7 @@ utile per recuperate in *runtime* il dizionario aggiornato di
 
 ## Hardware
 Ci sono alcuni accorgimenti di cui tenere conto nello sviluppo
-dell'UC.
+dell'OUC.
 
 ### Spegnimento e riavvio
 Lo spegnimento deve essere *sicuro*, *i.e.* equivalente a
@@ -198,7 +198,7 @@ Lo spegnimento deve essere *sicuro*, *i.e.* equivalente a
  - `sudo shutdown`
 
 Staccare il cavo di alimentazione non è un modo sicuro di spegnere
-l'UC. È necessario utilizzare il bottone di spegnimento, che, alla
+l'OUC. È necessario utilizzare il bottone di spegnimento, che, alla
 pressione, avvia uno script che esegue i due compiti indicati sopra.
 Alternativamente, è presente un comando nell'interfaccia da linea di
 comando di Mothics.
