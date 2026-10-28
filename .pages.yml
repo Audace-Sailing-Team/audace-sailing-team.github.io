@@ -1,0 +1,284 @@
+# Pages CMS configuration for Audace Sailing Team / Sensoristica
+# Repository: https://github.com/Audace-Sailing-Team/audace-sailing-team.github.io
+# Branch: master
+# Install this file at the repository root as .pages.yml.
+# Section _index.md files are edited separately and protected from deletion.
+
+media:
+  input: static/images
+  output: /images
+  categories: [image]
+  rename: safe
+
+# Reusable Hugo frontmatter fields and body editors.
+# The Markdown code editor preserves hand-written tables, code blocks,
+# task lists, and Hugo's <!--more--> summary separator better than WYSIWYG.
+components:
+  title:
+    type: string
+    label: Titolo
+    required: true
+  date:
+    type: date
+    label: Data
+    options:
+      format: yyyy-MM-dd
+  weight:
+    type: number
+    label: Ordine nel menu (weight)
+    description: Valore usato da Hugo per ordinare le pagine.
+  author:
+    type: string
+    label: Autore
+  draft:
+    type: boolean
+    label: Bozza
+  body_visual:
+    type: rich-text
+    label: Contenuto
+    options:
+      format: markdown
+      switcher: true
+  body_markdown:
+    type: code
+    label: Contenuto (Markdown)
+    description: Conservare commenti HTML come <!--more--> e la sintassi Hugo.
+    options:
+      format: markdown
+
+content:
+  - name: homepage
+    label: Homepage
+    type: file
+    path: content/_index.md
+    format: yaml-frontmatter
+    operations: {create: false, rename: false, delete: false}
+    fields:
+      - {name: title, component: title}
+      - {name: subtitle, type: string, label: Sottotitolo}
+      # The existing homepage date contains a timezone offset.
+      - {name: date, type: string, label: 'Data (ISO 8601)'}
+      - {name: body, component: body_visual}
+
+  - name: dashboard
+    label: Dashboard
+    type: group
+    items:
+      - name: dashboard_home
+        label: Panoramica Dashboard
+        type: file
+        path: content/dashboard/_index.md
+        format: yaml-frontmatter
+        operations: {create: false, rename: false, delete: false}
+        fields:
+          - {name: title, component: title}
+          - {name: date, component: date}
+          - {name: body, component: body_visual}
+      - name: dashboard_pages
+        label: Pagine Dashboard
+        type: collection
+        path: content/dashboard
+        format: yaml-frontmatter
+        exclude: [_index.md]
+        subfolders: false
+        filename: '{primary}.md'
+        view:
+          fields: [title, date, weight]
+          primary: title
+          sort: [weight, title, date]
+          default: {sort: weight, order: asc}
+        fields:
+          - {name: title, component: title}
+          - {name: date, component: date}
+          - {name: weight, component: weight}
+          - {name: author, component: author}
+          - {name: draft, component: draft}
+          - {name: body, component: body_markdown}
+
+  - name: docs
+    label: Documentazione
+    type: group
+    items:
+      - name: docs_home
+        label: Panoramica Documentazione
+        type: file
+        path: content/docs/_index.md
+        format: yaml-frontmatter
+        operations: {create: false, rename: false, delete: false}
+        fields:
+          - {name: title, component: title}
+          - {name: date, component: date}
+          - {name: weight, component: weight}
+          - {name: body, component: body_visual}
+      - name: docs_pages
+        label: Schede tecniche
+        type: collection
+        path: content/docs
+        format: yaml-frontmatter
+        exclude: [_index.md]
+        subfolders: false
+        filename: '{primary}.md'
+        view:
+          fields: [title, weight, date]
+          primary: title
+          sort: [weight, title, date]
+          default: {sort: weight, order: asc}
+        fields:
+          - {name: title, component: title}
+          - {name: date, component: date}
+          - {name: weight, component: weight}
+          - {name: author, component: author}
+          - {name: draft, component: draft}
+          - {name: body, component: body_markdown}
+
+  - name: tutorials
+    label: Risorse e tutorial
+    type: group
+    items:
+      - name: tutorials_home
+        label: Panoramica Risorse
+        type: file
+        path: content/tutorials/_index.md
+        format: yaml-frontmatter
+        operations: {create: false, rename: false, delete: false}
+        fields:
+          - {name: title, component: title}
+          - {name: date, component: date}
+          - {name: weight, component: weight}
+          - {name: body, component: body_markdown}
+      - name: tutorials_pages
+        label: Guide e tutorial
+        type: collection
+        path: content/tutorials
+        format: yaml-frontmatter
+        exclude: [_index.md]
+        subfolders: false
+        filename: '{primary}.md'
+        view:
+          fields: [title, weight, author, date]
+          primary: title
+          sort: [weight, title, date]
+          default: {sort: weight, order: asc}
+        fields:
+          - {name: title, component: title}
+          - {name: date, component: date}
+          - {name: author, component: author}
+          - {name: weight, component: weight}
+          - {name: draft, component: draft}
+          - {name: body, component: body_markdown}
+
+  - name: archive
+    label: Archivio
+    type: group
+    items:
+      - name: archive_home
+        label: Panoramica Archivio
+        type: file
+        path: content/archive/_index.md
+        format: yaml-frontmatter
+        operations: {create: false, rename: false, delete: false}
+        fields:
+          - {name: title, component: title}
+          - {name: date, component: date}
+          - {name: body, component: body_markdown}
+
+      - name: orders
+        label: Ordini e acquisti
+        type: group
+        items:
+          - name: orders_home
+            label: Panoramica Ordini
+            type: file
+            path: content/archive/orders/_index.md
+            format: yaml-frontmatter
+            operations: {create: false, rename: false, delete: false}
+            fields:
+              - {name: title, component: title}
+              - {name: date, component: date}
+              - {name: body, component: body_markdown}
+          - name: orders_pages
+            label: Ordini
+            type: collection
+            path: content/archive/orders
+            format: yaml-frontmatter
+            exclude: [_index.md]
+            subfolders: false
+            filename: '{primary}.md'
+            view:
+              fields: [title, date, weight]
+              primary: title
+              sort: [date, title]
+              default: {sort: date, order: desc}
+            fields:
+              - {name: title, component: title}
+              - {name: date, component: date}
+              - {name: weight, component: weight}
+              - {name: author, component: author}
+              - {name: draft, component: draft}
+              - {name: body, component: body_markdown}
+
+      - name: reports
+        label: Report e debrief
+        type: group
+        items:
+          - name: reports_home
+            label: Panoramica Report
+            type: file
+            path: content/archive/reports/_index.md
+            format: yaml-frontmatter
+            operations: {create: false, rename: false, delete: false}
+            fields:
+              - {name: title, component: title}
+              - {name: date, component: date}
+              - {name: body, component: body_markdown}
+          - name: reports_pages
+            label: Report
+            type: collection
+            path: content/archive/reports
+            format: yaml-frontmatter
+            exclude: [_index.md]
+            subfolders: false
+            filename: '{primary}.md'
+            view:
+              fields: [title, date, weight]
+              primary: title
+              sort: [date, title]
+              default: {sort: date, order: desc}
+            fields:
+              - {name: title, component: title}
+              - {name: date, component: date}
+              - {name: weight, component: weight}
+              - {name: author, component: author}
+              - {name: draft, component: draft}
+              - {name: body, component: body_markdown}
+
+  - name: site_settings
+    label: Impostazioni (avanzate)
+    type: group
+    items:
+      - name: social
+        label: Collegamenti social
+        type: file
+        path: data/social.json
+        format: json
+        list: true
+        operations: {create: false, rename: false, delete: false}
+        fields:
+          - {name: name, label: Nome, type: string, required: true}
+          - {name: link, label: URL, type: string, required: true}
+          # Existing JSON uses image paths without a leading slash.
+          - {name: image, label: 'Icona (percorso)', type: string}
+      - name: hugo_settings
+        label: Configurazione Hugo (TOML)
+        type: file
+        path: config.toml
+        format: code
+        operations: {create: false, rename: false, delete: false}
+
+settings:
+  commit:
+    templates:
+      create: 'cms: aggiungi {path}'
+      update: 'cms: aggiorna {path}'
+      delete: 'cms: elimina {path}'
+      rename: 'cms: rinomina {oldPath} in {newPath}'
