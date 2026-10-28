@@ -26,7 +26,9 @@ Per progettare l'architettura di controllo siamo partiti dallo stato dell'arte d
 > **Riferimento:**  
 > R. Bencatel, S. Keerthivarman, I. Kolmanovsky, A. Girard,  
 > *"Full State Feedback Foiling Control for America's Cup Catamarans"*,  
-> **IEEE Transactions on Control Systems Technology**, 2019.
+> **IEEE Transactions on Control Systems Technology**, 2019.  
+> 📄 [Scarica il Paper Completo (PDF)](https://drive.google.com/file/d/1jjL-uqZtew2z2A8iXd_quuBKD1H9pEMK/view?usp=drive_link)  
+> 📑 [Scarica il Riassunto Tecnico (PDF)](https://drive.google.com/file/d/1fMuixhwfQFIloDEjHiANxf9sAKXqWZrX/view?usp=drive_link)
 
 Questo studio, sviluppato per i catamarani volanti AC45, analizza i problemi fondamentali del volo sull'acqua e dimostra scientificamente perché i controllori classici ed elementari (come un semplice PID che guarda solo l'altezza) falliscono in mare aperto:
 1. **Le onde ingannano i sensori:** un sensore di distanza (es. laser o ultrasuoni) a prua non misura l'altezza media del volo, ma la distanza dalla singola onda che passa sotto. Se il controllore cercasse di inseguire ogni cresta e cavo d'onda, la barca oscillerebbe impazzita.
@@ -86,7 +88,7 @@ All'interno di `src/flight_system` sono presenti tutti gli strumenti software re
 - `moth_sim.py`: simulatore 3-DOF (longitudinale) con filtro di Kalman, disturbo delle onde e controllore LQRi.
 - `moth_6dof.py`: simulatore non lineare completo 6-DOF con accoppiamento idro-aerodinamico e verifica di stabilità multi-asse.
 - `presentazione_volo_automatico.md` e `presentazione_6dof_volo_automatico.md`: slide di presentazione e note tecniche per il team.
-- `ppr/`: copia del paper scientifico di riferimento (Bencatel et al., 2019) e sintesi tecnica.
+- `ppr/`: materiali bibliografici, contenenti il [paper completo](https://drive.google.com/file/d/1jjL-uqZtew2z2A8iXd_quuBKD1H9pEMK/view?usp=drive_link) (Bencatel et al., 2019) e il [riassunto sintetico](https://drive.google.com/file/d/1fMuixhwfQFIloDEjHiANxf9sAKXqWZrX/view?usp=drive_link).
 
 ### Ricadute pratiche per il progetto:
 I modelli sviluppati definiscono le specifiche per l'hardware che andrà a bordo:
