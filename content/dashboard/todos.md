@@ -11,16 +11,18 @@ date: 2026-03-19
 
 - [ ] Creazione scatola
 	- [ ] Modellazione
-		- [ ] Dimensionamento batteria per esp32
- 		- [ ] IMU nuovo ?
+		- [ ] Dimensionamento batteria per ESP32
    		- [ ] Test servo 
+			- [ ] Dimensionamento batteria
+			- [ ] Surruscaldamento
+			- [ ] Risposta
   	- [ ] Creazione guscio
   		- [ ] Impermeabilizzazione
-  - [ ] PCB
-  	- [ ] Test PCB Hat rasPi quando arriva
-  	 - [ ] Corso con il racing
-  	  	- [ ] Cominciare a capire come si usa Altium e come progettare PCB
-  	    - [ ] Progettare la nostra prima PCB con circuito integrato
+    - [ ] PCB
+  	    - [ ] Test PCB Hat RasPi quando arriva
+  	    - [ ] Corso con il racing
+  	  	    - [ ] Cominciare a capire come si usa Altium e come progettare PCB
+  	        - [ ] Progettare la nostra prima PCB con circuito integrato
 ---
 
 ## Software
@@ -28,9 +30,9 @@ date: 2026-03-19
 I filoni principali di lavoro sono:
 
 ### Esp32
-- [ ] Scrittura del codice in linguaggio da decidere per esp32
-	- [ ] Decidere il linguaggio
-	- [ ] Scegliere protocolli di comunicazione sensori
+- [ ] Scrittura del codice in C
+	- [x] Decidere il linguaggio
+	- [x] Scegliere protocolli di comunicazione sensori
 	- [ ] Test del funizionamento per ogni sensore
 		- [ ] IMU funziona e legge dati
 		- [ ] GPS funziona e legge dati
@@ -48,7 +50,7 @@ I filoni principali di lavoro sono:
 - [ ] IMU BNO055
 	- [ ] Creare modulo software
 	- [ ] Capire la questione sistema di riferimento
-- [ ] RTC
+- [ ] RTC (lo implementiamo?)
 	- [ ] https://pimylifeup.com/raspberry-pi-rtc/
 	- [ ] https://thepihut.com/blogs/raspberry-pi-tutorials/17209332-adding-a-real-time-clock-to-your-raspberry-pi
 - [ ] DHT22
@@ -59,7 +61,7 @@ I filoni principali di lavoro sono:
     - [ ] Creazione di un programmino di traduzione dal nostro tipo di salvataggio .json a .gpx
 
 ### Controllo di volo
-- [] Delineare una struttura generale
+- [ ] Delineare una struttura generale
 
 
 
