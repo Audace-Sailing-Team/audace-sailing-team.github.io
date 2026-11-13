@@ -9,4 +9,5 @@ Avviato il lavoro di creazione di un nuovo software dedicato al raccoglirer dati
 # Progetti in corso
  - (UC1) Unità Centrale: studio di fattibilità sull'alimentazione a basso voltaggio e dimensionamento delle batterie.
  - (UC2) Unità Centrale: studio di fattibilità della connessione tra ESP32 e sensori via I2C, UART e tra ESP32 e Raspi wireless (o alternative).
+ - (UC3) Unità centrale: inizio scrittura codice C per la connessione con i sensori.
  - (SV) Sistema di volo: Ideazione di una struttura funzionante, affidabile e fattibile, capendo anche cosa è necessario e che filtri usare
