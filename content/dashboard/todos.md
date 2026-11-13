@@ -16,7 +16,7 @@ date: 2026-03-19
 			- [ ] Dimensionamento batteria
 			- [ ] Surruscaldamento
 			- [ ] Risposta
-  	- [ ] Creazione guscio
+  	    - [ ] Creazione guscio
   		- [ ] Impermeabilizzazione
     - [ ] PCB
   	    - [ ] Test PCB Hat RasPi quando arriva
